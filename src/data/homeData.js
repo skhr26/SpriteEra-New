@@ -7,8 +7,9 @@ export const navigationLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "#" },
   { name: "Products", href: "#" },
-  { name: "Solutions", href: "/solutions", isActive: true },
-  { name: "Projects", href: "#" },
+  { name: "Solutions", href: "/solutions" },
+  { name: "Architect", href: "/architect" },
+  { name: "Projects", href: "/projects" },
   { name: "Catalogue", href: "#" },
   { name: "Contact", href: "#" }
 ];
@@ -129,6 +130,20 @@ export const productsData = [
     title: "Solar Street Light",
     desc: "For off-grid outdoor applications.",
     link: "/products/solar-street-light"
+  },
+  {
+    id: "led-batten",
+    imageUrl: "/images/products/led-batten-light.png",
+    title: "LED Batten Light",
+    desc: "Energy-efficient linear illumination for workspaces.",
+    link: "/products/led-batten-light"
+  },
+  {
+    id: "industrial-bay-pro",
+    imageUrl: "/images/products/led-high-bay-light.png",
+    title: "Linear Industrial High Bay",
+    desc: "Heavy-duty illumination for warehouses and workshops.",
+    link: "/products/led-high-bay-light"
   }
 ];
 

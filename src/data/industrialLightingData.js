@@ -9,8 +9,9 @@ export const industrialSolutionsData = {
     title: "Industrial Lighting",
     titleSuffix: "Solutions",
     description: "Reliable and efficient lighting for factories, manufacturing units, warehouses and industrial facilities.",
-    primaryCta: { label: "Explore Products →", href: "#products" },
-    secondaryCta: { label: "Get a Project Quote →", href: "/contact" },
+    primaryCta: { label: "Explore Products", href: "#products" },
+    secondaryCta: { label: "Get a Project Quote", href: "/contact" },
+    bgImage: "/images/solutions/industrial-hero-hd.jpg",
     badges: [
       { label: "Suitable for Industrial Environments", icon: "/images/solutions/icon-industrial-environments.png" },
       { label: "Wide Product Range", icon: "/images/icon-product-range.png" },
@@ -21,9 +22,10 @@ export const industrialSolutionsData = {
 
   overview: {
     tag: "OVERVIEW",
-    title: "Lighting for Every Industrial Space",
+    title: "Lighting for Every",
+    titleHighlight: "Industrial Space",
     description: "Industrial spaces have different lighting requirements depending on the activity, ceiling height, environment and working conditions. Vajra LED offers lighting solutions designed to meet the needs of factories, warehouses, production areas, workshops and other industrial facilities.",
-    cta: { label: "Talk to a Lighting Expert →", href: "/contact" },
+    cta: { label: "Talk to a Lighting Expert", href: "/contact" },
     spaces: [
       { id: "factories", label: "Factories", sub: "& Manufacturing", icon: "/images/solutions/space-factory.png" },
       { id: "warehouses", label: "Warehouses", sub: "& Storage", icon: "/images/solutions/space-warehouse.png" },
@@ -151,8 +153,8 @@ export const industrialSolutionsData = {
       icon: "/images/features/feat-shield.png"
     },
     {
-      title: "Technical Assistance",
-      desc: "Products assistance and after-sales support.",
+      title: "Technical Guidance",
+      desc: "Product guidance and expert support.",
       icon: "/images/features/feat-team.png"
     },
     {
