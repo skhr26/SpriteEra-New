@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Eyebrow from "./Eyebrow";
 
 export default function SectionHeader({
   label,
@@ -15,12 +16,7 @@ export default function SectionHeader({
   return (
     <div className={`flex flex-col sm:flex-row sm:items-end justify-between mb-10 ${className}`}>
       <div>
-        {label && (
-          <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-2 flex items-center gap-2">
-            <span className="w-5 h-px bg-brand-accent"></span>
-            {label}
-          </p>
-        )}
+        {label && <Eyebrow label={label} />}
         <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight ${dark ? "text-white" : "text-brand-navy"}`}>
           {title}{" "}
           {highlight && <span className="text-brand-accent">{highlight}</span>}

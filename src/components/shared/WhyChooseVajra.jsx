@@ -1,3 +1,5 @@
+import Eyebrow from "./Eyebrow";
+
 export default function WhyChooseVajra({
   tag,
   title = "Why Choose",
@@ -20,12 +22,7 @@ export default function WhyChooseVajra({
       <div className="absolute inset-0 bg-gradient-to-r from-brand-night via-brand-night/95 md:via-brand-night/85 to-brand-night/30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        {tag && (
-          <p className="text-xs font-semibold tracking-widest text-brand-accent-light uppercase mb-2 flex items-center gap-2">
-            <span className="w-6 h-0.5 bg-brand-accent-light"></span>
-            {tag}
-          </p>
-        )}
+        {tag && <Eyebrow label={tag} dark barClassName="w-6" />}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
           {title} <span className="text-brand-accent-glow">{titleHighlight}</span>
         </h2>

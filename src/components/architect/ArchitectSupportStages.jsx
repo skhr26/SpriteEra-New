@@ -1,4 +1,5 @@
 import { MessageSquare, FileSearch, BarChart3, Truck, ArrowRight } from "lucide-react";
+import Eyebrow from "../shared/Eyebrow";
 
 const STAGE_ICONS = {
   message: MessageSquare,
@@ -16,12 +17,7 @@ export default function ArchitectSupportStages({ data }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Header */}
         <div className="mb-12 max-w-3xl">
-          {tag && (
-            <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-2 flex items-center gap-2">
-              <span className="w-5 h-px bg-brand-accent"></span>
-              {tag}
-            </p>
-          )}
+          {tag && <Eyebrow label={tag} />}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-navy tracking-tight mb-2">
             {title}
           </h2>

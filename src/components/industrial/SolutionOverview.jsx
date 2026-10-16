@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Eyebrow from "../shared/Eyebrow";
+import { PrimaryCtaButton } from "../shared/CtaButtons";
 
 export default function SolutionOverview({ overview, className = "" }) {
   if (!overview) return null;
@@ -10,12 +10,7 @@ export default function SolutionOverview({ overview, className = "" }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Text & CTA */}
           <div className="lg:col-span-7">
-            {overview.tag && (
-              <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-2 flex items-center gap-2">
-                <span className="w-5 h-0.5 bg-brand-accent"></span>
-                {overview.tag}
-              </p>
-            )}
+            {overview.tag && <Eyebrow label={overview.tag} />}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-navy tracking-tight mb-4">
               {overview.title}{" "}
               {overview.titleHighlight && (
@@ -26,13 +21,7 @@ export default function SolutionOverview({ overview, className = "" }) {
             {overview.description}
           </p>
           {overview.cta && (
-            <Link
-              href={overview.cta.href}
-              className="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white px-6 py-3 rounded-md text-xs md:text-sm font-bold transition-all shadow-sm"
-            >
-              <span>{overview.cta.label}</span>
-              <ArrowRight className="w-4 h-4" strokeWidth={2} />
-            </Link>
+            <PrimaryCtaButton href={overview.cta.href} label={overview.cta.label} />
           )}
         </div>
 
@@ -45,15 +34,18 @@ export default function SolutionOverview({ overview, className = "" }) {
                 <div key={sp.id} className="flex flex-col items-center group cursor-pointer">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white shadow-[0_4px_18px_rgba(0,102,204,0.12)] border border-blue-100 flex items-center justify-center p-3.5 mb-2.5 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
                     <img
-                      src={`/images/solutions/${
-                        sp.id === "factories"
-                          ? "pure-space-factory.png"
-                          : sp.id === "warehouses"
-                          ? "pure-space-warehouse.png"
-                          : sp.id === "workshops"
-                          ? "pure-space-workshop.png"
-                          : "pure-space-logistics.png"
-                      }`}
+                      src={
+                        sp.icon ||
+                        `/images/solutions/${
+                          sp.id === "factories"
+                            ? "pure-space-factory.png"
+                            : sp.id === "warehouses"
+                            ? "pure-space-warehouse.png"
+                            : sp.id === "workshops"
+                            ? "pure-space-workshop.png"
+                            : "pure-space-logistics.png"
+                        }`
+                      }
                       alt={sp.label}
                       className="w-9 h-9 sm:w-11 sm:h-11 object-contain"
                     />

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { PrimaryCtaButton } from "./CtaButtons";
 
 export function ConsultationBanner() {
   return (
@@ -24,13 +24,11 @@ export function ConsultationBanner() {
           <p className="text-gray-600 mb-6 text-xs sm:text-sm md:text-base leading-relaxed">
             Tell us about your application and our team will help you find the most suitable lighting products for your requirement.
           </p>
-          <a
+          <PrimaryCtaButton
             href="/contact"
-            className="bg-brand-blue hover:bg-brand-blue-hover text-white px-6 py-3.5 rounded-md text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2"
-          >
-            <span>Request Product Recommendation</span>
-            <ArrowRight className="w-4 h-4" strokeWidth={2} />
-          </a>
+            label="Request Product Recommendation"
+            className="py-3.5 shadow-md hover:shadow-lg"
+          />
         </div>
       </div>
     </section>

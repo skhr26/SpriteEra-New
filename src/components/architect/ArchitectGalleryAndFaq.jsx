@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowRight, Plus, Minus } from "lucide-react";
+import Eyebrow from "../shared/Eyebrow";
+import { CardCtaLink } from "../shared/CtaButtons";
+import { Plus, Minus } from "lucide-react";
 
 export default function ArchitectGalleryAndFaq({ data }) {
   if (!data) return null;
@@ -21,12 +22,7 @@ export default function ArchitectGalleryAndFaq({ data }) {
           {/* Left Column: Project Inspiration Gallery */}
           <div className="lg:col-span-6 flex flex-col">
             <div className="mb-6">
-              {gallery.tag && (
-                <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-2 flex items-center gap-2">
-                  <span className="w-5 h-px bg-brand-accent"></span>
-                  {gallery.tag}
-                </p>
-              )}
+              {gallery.tag && <Eyebrow label={gallery.tag} />}
               <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy tracking-tight">
                 {gallery.title}
               </h2>
@@ -66,13 +62,11 @@ export default function ArchitectGalleryAndFaq({ data }) {
                 </h2>
               </div>
               {faq.actionText && (
-                <Link
+                <CardCtaLink
                   href={faq.actionHref || "/faq"}
-                  className="text-xs sm:text-sm font-semibold text-brand-accent hover:text-brand-blue-hover flex items-center gap-1 flex-shrink-0"
-                >
-                  <span>{faq.actionText}</span>
-                  <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-                </Link>
+                  label={faq.actionText}
+                  className="text-xs sm:text-sm text-brand-accent hover:text-brand-blue-hover flex-shrink-0"
+                />
               )}
             </div>
 

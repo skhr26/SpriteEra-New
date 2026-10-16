@@ -1,4 +1,5 @@
 import ArchitectEnquiryForm from "./ArchitectEnquiryForm";
+import Eyebrow from "../shared/Eyebrow";
 
 export default function ArchitectProjectsSection({ data }) {
   if (!data) return null;
@@ -12,12 +13,7 @@ export default function ArchitectProjectsSection({ data }) {
           <div className="lg:col-span-8 flex flex-col">
             {/* Header */}
             <div className="mb-8">
-              {tag && (
-                <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-2 flex items-center gap-2">
-                  <span className="w-5 h-px bg-brand-accent"></span>
-                  {tag}
-                </p>
-              )}
+              {tag && <Eyebrow label={tag} />}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-navy tracking-tight mb-2">
                 {title}{" "}
                 {titleHighlight && <span className="text-brand-accent">{titleHighlight}</span>}

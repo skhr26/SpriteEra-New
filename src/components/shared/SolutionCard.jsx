@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { CardCtaLink } from "./CtaButtons";
 
 export default function SolutionCard({
   title,
@@ -41,13 +40,7 @@ export default function SolutionCard({
             {desc}
           </p>
           <div className="mt-auto pt-3">
-            <Link
-              href={link}
-              className="text-brand-blue font-semibold text-xs inline-flex items-center gap-1.5 hover:gap-2 transition-all hover:text-brand-blue-hover"
-            >
-              <span>{buttonText}</span>
-              <ArrowRight className="w-4 h-4" strokeWidth={2} />
-            </Link>
+            <CardCtaLink href={link} label={buttonText} />
           </div>
         </div>
       </div>

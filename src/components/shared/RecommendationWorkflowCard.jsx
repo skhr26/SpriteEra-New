@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { PrimaryCtaButton } from "./CtaButtons";
 
 export default function RecommendationWorkflowCard({
   title = "Not Sure Which Product You Need?",
@@ -21,13 +20,7 @@ export default function RecommendationWorkflowCard({
         <p className="text-gray-600 text-xs sm:text-sm mb-6">
           {description}
         </p>
-        <Link
-          href={buttonHref}
-          className="bg-brand-blue hover:bg-brand-blue-hover text-white px-6 py-3 rounded-md text-xs sm:text-sm font-bold transition shadow-sm inline-flex items-center gap-2"
-        >
-          <span>{buttonText}</span>
-          <ArrowRight className="w-4 h-4" strokeWidth={2} />
-        </Link>
+        <PrimaryCtaButton href={buttonHref} label={buttonText} />
       </div>
 
       {/* 3 Step Flow diagram */}

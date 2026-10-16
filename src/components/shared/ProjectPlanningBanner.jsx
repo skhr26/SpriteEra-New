@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Eyebrow from "./Eyebrow";
+import { PrimaryCtaButton, SecondaryCtaButton } from "./CtaButtons";
 
 export default function ProjectPlanningBanner({
   tag = "PROJECT SUPPORT",
@@ -18,12 +18,7 @@ export default function ProjectPlanningBanner({
         <div className="bg-blue-50/70 rounded-2xl border border-blue-100 overflow-hidden shadow-sm flex flex-col lg:flex-row items-stretch justify-between">
         {/* Left Column: Heading, description & CTAs */}
         <div className="p-8 sm:p-10 lg:p-12 lg:max-w-md xl:max-w-lg flex flex-col justify-center flex-shrink-0">
-          {tag && (
-            <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-3 flex items-center gap-2">
-              <span className="w-5 h-0.5 bg-brand-accent"></span>
-              {tag}
-            </p>
-          )}
+          {tag && <Eyebrow label={tag} />}
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-brand-navy mb-3.5 tracking-tight leading-tight">
             {title}
           </h2>
@@ -33,22 +28,14 @@ export default function ProjectPlanningBanner({
 
           <div className="flex flex-wrap items-center gap-3.5 mt-auto">
             {primaryCta && (
-              <Link
-                href={primaryCta.href}
-                className="bg-brand-blue hover:bg-brand-blue-hover text-white px-6 py-3 rounded-md text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md inline-flex items-center gap-1.5"
-              >
-                <span>{primaryCta.label}</span>
-                <ArrowRight className="w-4 h-4" strokeWidth={2} />
-              </Link>
+              <PrimaryCtaButton href={primaryCta.href} label={primaryCta.label} />
             )}
             {secondaryCta && (
-              <Link
+              <SecondaryCtaButton
                 href={secondaryCta.href}
-                className="bg-white border border-gray-300 hover:bg-gray-50 text-brand-navy px-6 py-3 rounded-md text-xs sm:text-sm font-semibold transition inline-flex items-center gap-1.5"
-              >
-                <span>{secondaryCta.label}</span>
-                <ArrowRight className="w-4 h-4 text-brand-navy" strokeWidth={2} />
-              </Link>
+                label={secondaryCta.label}
+                className="border border-gray-300 font-semibold"
+              />
             )}
           </div>
         </div>

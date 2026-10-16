@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import FeatureBadgesStrip from "./FeatureBadgesStrip";
+import Eyebrow from "./Eyebrow";
+import { PrimaryCtaButton, SecondaryCtaButton } from "./CtaButtons";
 
 export default function PageHero({
   breadcrumbs,
@@ -59,14 +60,12 @@ export default function PageHero({
         {/* Hero Text Content */}
         <div className={centered ? "max-w-4xl mx-auto" : "max-w-2xl py-4 md:py-8"}>
           {tag && (
-            <p
-              className={`text-xs font-bold tracking-widest text-brand-accent-light uppercase mb-3 flex items-center gap-2 ${
-                centered ? "justify-center" : ""
-              }`}
-            >
-              <span className="w-5 h-0.5 bg-brand-accent-light"></span>
-              {tag}
-            </p>
+            <Eyebrow
+              label={tag}
+              dark
+              centered={centered}
+              className="mb-3 tracking-widest"
+            />
           )}
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 leading-[1.08]">
@@ -95,22 +94,10 @@ export default function PageHero({
               }`}
             >
               {primaryCta && (
-                <Link
-                  href={primaryCta.href}
-                  className="bg-brand-blue hover:bg-brand-blue-hover text-white px-7 py-3.5 rounded-md font-bold text-sm md:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2"
-                >
-                  <span>{primaryCta.label}</span>
-                  <ArrowRight className="w-4 h-4" strokeWidth={2} />
-                </Link>
+                <PrimaryCtaButton href={primaryCta.href} label={primaryCta.label} size="lg" />
               )}
               {secondaryCta && (
-                <Link
-                  href={secondaryCta.href}
-                  className="bg-white hover:bg-gray-100 text-brand-navy px-7 py-3.5 rounded-md font-bold text-sm md:text-base transition-all shadow-sm hover:shadow-md inline-flex items-center gap-2"
-                >
-                  <span>{secondaryCta.label}</span>
-                  <ArrowRight className="w-4 h-4 text-brand-navy" strokeWidth={2} />
-                </Link>
+                <SecondaryCtaButton href={secondaryCta.href} label={secondaryCta.label} size="lg" />
               )}
             </div>
           )}

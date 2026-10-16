@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import SectionHeader from "../SectionHeader";
+import SectionHeader from "../shared/SectionHeader";
+import { CardCtaLink } from "../shared/CtaButtons";
 
 export default function ArchitectCategoriesSection({ data }) {
   if (!data) return null;
@@ -37,13 +36,11 @@ export default function ArchitectCategoriesSection({ data }) {
               <p className="text-gray-500 text-[11px] sm:text-xs leading-relaxed mb-3 flex-grow line-clamp-2">
                 {cat.desc}
               </p>
-              <Link
+              <CardCtaLink
                 href={cat.link}
-                className="text-[11px] sm:text-xs font-bold text-brand-accent hover:text-brand-blue-hover inline-flex items-center gap-1 group/link mt-auto"
-              >
-                <span>View Products</span>
-                <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" strokeWidth={2.2} />
-              </Link>
+                label="View Products"
+                className="text-[11px] sm:text-xs text-brand-accent hover:text-brand-blue-hover mt-auto"
+              />
             </div>
           </div>
         ))}

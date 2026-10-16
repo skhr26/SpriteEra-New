@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { ArrowRight, Lightbulb, PencilRuler, ShieldCheck, FileText } from "lucide-react";
+import { Lightbulb, PencilRuler, ShieldCheck, FileText } from "lucide-react";
+import Eyebrow from "../shared/Eyebrow";
+import { SecondaryCtaButton } from "../shared/CtaButtons";
 
 const ICONS = {
   lightbulb: Lightbulb,
@@ -17,12 +18,7 @@ export default function ArchitectWhyChoose({ data }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Eyebrow and Headline */}
       <div className="mb-10 max-w-3xl">
-        {tag && (
-          <p className="text-xs font-bold tracking-widest text-brand-accent uppercase mb-2 flex items-center gap-2">
-            <span className="w-5 h-px bg-brand-accent"></span>
-            {tag}
-          </p>
-        )}
+        {tag && <Eyebrow label={tag} />}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-navy tracking-tight mb-3">
           {title}{" "}
           {titleHighlight && <span className="text-brand-accent">{titleHighlight}</span>}
@@ -79,13 +75,11 @@ export default function ArchitectWhyChoose({ data }) {
               <p className="text-gray-200 text-xs sm:text-sm leading-relaxed mb-6">
                 {sideCard.description}
               </p>
-              <Link
+              <SecondaryCtaButton
                 href={sideCard.cta.href}
-                className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-brand-navy px-6 py-3.5 rounded-lg text-xs sm:text-sm font-bold transition shadow-sm"
-              >
-                <span>{sideCard.cta.label}</span>
-                <ArrowRight className="w-4 h-4 text-brand-navy" strokeWidth={2} />
-              </Link>
+                label={sideCard.cta.label}
+                className="rounded-lg px-6 py-3.5"
+              />
             </div>
           </div>
         )}
