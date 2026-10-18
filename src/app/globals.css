@@ -1,22 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #0056b3;
+  /* Brand palette — single source of truth. Change colors here only. */
+
+  /* Navy / dark backgrounds */
+  --color-brand-navy: #001E36;         /* headlines, dark text, hero bg */
+  --color-brand-night: #06172d;        /* "Why Vajra" dark section bg */
+  --color-brand-navy-deep: #021831;    /* industrial hero/footer bg */
+
+  /* Footer */
+  --color-brand-footer: #022044;       /* footer bg */
+  --color-brand-footer-mid: #023572;   /* footer gradient middle */
+  --color-brand-footer-dark: #03234d;  /* footer gradient end */
+  --color-brand-navy-pill: #022754;    /* footer ghost button bg */
+  --color-brand-footer-text: #022d64;  /* text on white footer buttons */
+
+  /* Blues */
+  --color-brand-blue: #0056b3;         /* primary buttons */
   --color-brand-blue-hover: #004494;
-  --color-brand-accent: #0066cc;
-  --color-brand-accent-hover: #0052a3;
-  --color-brand-accent-light: #4fa3ff;
-  --color-brand-accent-glow: #0088ff;
-  --color-brand-primary: #0070f3;
-  --color-brand-primary-hover: #0060df;
-  --color-brand-navy: #001E36;
-  --color-brand-navy-dark: #021327;
-  --color-brand-navy-pill: #022754;
-  --color-brand-night: #06172d;
-  --color-brand-gradient-start: #d8ebfd;
-  --color-brand-gradient-mid: #eaf4fe;
-  --color-brand-gradient-end: #cbe5fd;
-  --color-brand-light-bubble: #e1effe;
+  --color-brand-accent: #0066cc;       /* eyebrows, links, highlights */
+  --color-brand-accent-light: #3399ff; /* highlights on dark bg */
+  --color-brand-accent-glow: #0088ff;  /* highlight on dark sections */
+
+  /* Hero */
+  --color-brand-hero-scrim: #001A33;   /* hero gradient base */
+
+  /* Surfaces */
+  --color-brand-surface: #eaf3fc;      /* light blue banner bg */
+  --color-brand-surface-soft: #f0f6ff; /* project support panel bg */
+  --color-brand-gradient-start: #d9ebfd;
+  --color-brand-gradient-mid: #e5f1fe;
+  --color-brand-light-bubble: #e1effe; /* icon bubble bg */
 }
 
 body {

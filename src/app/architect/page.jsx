@@ -1,5 +1,5 @@
-import Navbar from "../../components/shared/Navbar";
-import PageHero from "../../components/shared/PageHero";
+import Navbar from "../../components/Navbar";
+import PageHero from "../../components/PageHero";
 import ArchitectWhyChoose from "../../components/architect/ArchitectWhyChoose";
 import ArchitectProjectsSection from "../../components/architect/ArchitectProjectsSection";
 import ArchitectCategoriesSection from "../../components/architect/ArchitectCategoriesSection";
@@ -25,11 +25,11 @@ export default function ArchitectPage() {
   } = architectData;
 
   return (
-    <div className="min-h-screen font-sans bg-white text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900 flex flex-col">
+    <div className="min-h-screen font-sans bg-white text-gray-900">
       {/* 1. Global Navbar */}
       <Navbar />
 
-      {/* 2. Hero Section (Shared PageHero) */}
+      {/* 2. Hero Section (Home-page visual language) */}
       <PageHero
         breadcrumbs={hero.breadcrumbs}
         tag={hero.tag}
@@ -39,7 +39,10 @@ export default function ArchitectPage() {
         primaryCta={hero.primaryCta}
         secondaryCta={hero.secondaryCta}
         bgImage={hero.bgImage}
+        imageOpacity="opacity-90"
+        minHeight="min-h-[560px] lg:min-h-[720px]"
         badges={hero.badges}
+        badgesInline
       />
 
       {/* 3. Why Architects Choose Vajra */}

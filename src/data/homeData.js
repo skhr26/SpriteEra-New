@@ -1,3 +1,11 @@
+import { ShieldCheck } from "lucide-react";
+import { Gem } from "lucide-react";
+import { FileText } from "lucide-react";
+import { UserGroup } from "lucide-react";
+import { Headset } from "lucide-react";
+import { Settings } from "lucide-react";
+import { MapPin } from "lucide-react";
+
 export const siteConfig = {
   name: "VAJRA LED",
   logoUrl: "/images/logo.png",
@@ -10,15 +18,16 @@ export const navigationLinks = [
   { name: "Solutions", href: "/solutions" },
   { name: "Architect", href: "/architect" },
   { name: "Projects", href: "/projects" },
+  { name: "Bulk Orders", href: "/bulk-orders" },
   { name: "Catalogue", href: "#" },
-  { name: "Contact", href: "#" }
+  { name: "Contact", href: "/contact" }
 ];
 
 export const heroFeatures = [
-  { icon: "/images/icon-product-range.png", label: "Wide Product Range" },
-  { icon: "/images/icon-application-support.png", label: "Application Support" },
-  { icon: "/images/icon-reliable-performance.png", label: "Reliable Performance" },
-  { icon: "/images/icon-technical-assistance.png", label: "Technical Assistance" }
+  { icon: MapPin, label: "Wide Product Range" },
+  { icon: Settings, label: "Application Support" },
+  { icon: ShieldCheck, label: "Reliable Performance" },
+  { icon: Headset, label: "Technical Assistance" }
 ];
 
 export const solutionsData = [
@@ -130,51 +139,37 @@ export const productsData = [
     title: "Solar Street Light",
     desc: "For off-grid outdoor applications.",
     link: "/products/solar-street-light"
-  },
-  {
-    id: "led-batten",
-    imageUrl: "/images/products/led-batten-light.png",
-    title: "LED Batten Light",
-    desc: "Energy-efficient linear illumination for workspaces.",
-    link: "/products/led-batten-light"
-  },
-  {
-    id: "industrial-bay-pro",
-    imageUrl: "/images/products/led-high-bay-light.png",
-    title: "Linear Industrial High Bay",
-    desc: "Heavy-duty illumination for warehouses and workshops.",
-    link: "/products/led-high-bay-light"
   }
 ];
 
 export const whyVajraFeatures = [
   {
     id: "quality",
-    iconUrl: "/images/features/quality.png",
+    iconUrl: Gem,
     title: "Quality Products",
     desc: "Tested and reliable lighting solutions."
   },
   {
     id: "wide-range",
-    iconUrl: "/images/icon-application-support.png",
+    iconUrl: Settings,
     title: "Wide Range",
     desc: "For indoor, outdoor and specialized applications."
   },
   {
     id: "warranty",
-    iconUrl: "/images/icon-reliable-performance.png",
+    iconUrl: ShieldCheck,
     title: "Warranty Support",
     desc: "Product warranty (terms applicable)."
   },
   {
     id: "technical",
-    iconUrl: "/images/features/team.png",
+    iconUrl: UserGroup,
     title: "Technical Assistance",
     desc: "Application guidance and after-sales support."
   },
   {
     id: "project",
-    iconUrl: "/images/features/document.png",
+    iconUrl: FileText,
     title: "Project Support",
     desc: "Support for large and custom requirements."
   }
@@ -220,6 +215,46 @@ export const projectsData = [
     imageUrl: "/images/projects/petrol-pump-project.png",
     alt: "Petrol pump canopy glowing with uniform recessed LED canopy fixtures",
     link: "/projects/fuel-station-canopy"
+  },
+  {
+    id: 6,
+    title: "Manufacturing Plant Floor Lighting",
+    category: "Industrial",
+    imageUrl: "/images/projects/industrial-project.png",
+    alt: "Industrial plant floor lit by high bay LED fixtures",
+    link: "/projects/manufacturing-plant"
+  },
+  {
+    id: 7,
+    title: "Outdoor Stadium Floodlighting",
+    category: "Sports",
+    imageUrl: "/images/projects/stadium-project.png",
+    alt: "Stadium field illuminated by LED floodlights",
+    link: "/projects/stadium-floodlighting"
+  },
+  {
+    id: 8,
+    title: "Premium Residential Spaces",
+    category: "Residential",
+    imageUrl: "/images/projects/residential-project.png",
+    alt: "Residential interiors with warm layered LED lighting",
+    link: "/projects/residential-spaces"
+  },
+  {
+    id: 9,
+    title: "Coastal Solar Street & Compound Lighting",
+    category: "Solar",
+    imageUrl: "/images/projects/solar-coastal-project.png",
+    alt: "Off-grid solar street lights along coastal areas",
+    link: "/projects/coastal-solar"
+  },
+  {
+    id: 10,
+    title: "Open & Basement Parking Areas",
+    category: "Parking",
+    imageUrl: "/images/projects/parking-project.png",
+    alt: "Parking area with bright uniform LED lighting",
+    link: "/projects/parking-areas"
   }
 ];
 

@@ -5,8 +5,8 @@ export const architectData = {
       { name: "Architect", href: "/architect" }
     ],
     tag: "DESIGN WITH VAJRA",
-    title: "Collaborate With Vajra",
-    titleHighlight: "for Better Lighting Design",
+    title: "Collaborate With Vajra for Better",
+    titleHighlight: "Lighting Design",
     description: "Partner with Vajra LED to bring reliable, efficient and aesthetically appealing lighting solutions to your architectural projects.",
     primaryCta: { label: "Connect With Us", href: "#enquiry" },
     secondaryCta: { label: "Request Product Support", href: "/contact" },
@@ -158,7 +158,8 @@ export const architectData = {
 
   supportStagesSection: {
     tag: "HOW WE SUPPORT",
-    title: "Support at Every Stage of Your Project",
+    title: "Support at Every Stage of",
+    titleHighlight: "Your Project",
     description: "From product selection to on-site support, our team is here to assist you.",
     stages: [
       {
@@ -191,7 +192,8 @@ export const architectData = {
   galleryAndFaq: {
     gallery: {
       tag: "PROJECT INSPIRATION",
-      title: "Architectural Lighting Applications",
+      title: "Architectural Lighting",
+      titleHighlight: "Applications",
       items: [
         { id: 1, image: "/images/architect/inspiration-1.jpg", alt: "Modern glass office building facade" },
         { id: 2, image: "/images/architect/inspiration-2.jpg", alt: "Architectural interior hallway lighting" },
