@@ -12,7 +12,7 @@ export default function LandingFaqColumns({ data }) {
   const [openIdx, setOpenIdx] = useState(-1);
 
   if (!data) return null;
-  const { tag, title, titleHighlight, actionText, actionHref, faqs = [] } = data;
+  const { tag, title, titleHighlight, titleSuffix, actionText, actionHref, faqs = [] } = data;
 
   const half = Math.ceil(faqs.length / 2);
   const columns = [faqs.slice(0, half), faqs.slice(half)];
@@ -53,6 +53,7 @@ export default function LandingFaqColumns({ data }) {
             label={tag}
             title={`${title} `}
             highlight={titleHighlight}
+            titleSuffix={titleSuffix}
             className="max-w-2xl"
             titleSize={data.titleSize}
           />

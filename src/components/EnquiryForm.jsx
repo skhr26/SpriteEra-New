@@ -39,6 +39,7 @@ const BASE_FORM = {
   fullName: "",
   companyName: "",
   mobile: "",
+  email: "",
   city: "",
   state: "",
   projectDetails: ""
@@ -50,16 +51,30 @@ export default function EnquiryForm({
   description = "Share your project details and our team will get in touch with product information and support.",
   successMessage = "Our architectural project specialist will review your project details and connect with you shortly.",
   extraSelects = [],
+  extraFields = [],
+  showEmail = false,
+  twoColumn = false,
+  detailsFullWidth = true,
+  submitLabel = "Submit Enquiry",
   detailsLabel = "Project Details",
   detailsPlaceholder = "Tell us about your project, building type and lighting requirements...",
   note = "Your information will be used to contact you regarding your enquiry.",
   variant = "light"
 }) {
-  const dark = variant === "dark";
+  const dark = variant === "dark" || variant === "blue";
+  const panelClass =
+    variant === "blue"
+      ? "bg-gradient-to-br from-brand-footer-mid to-brand-footer border border-blue-800/40"
+      : dark
+        ? "bg-brand-navy border border-blue-900/40"
+        : "bg-white border border-blue-100";
 
   const makeInitialForm = () => {
     const extra = {};
     extraSelects.forEach((field) => {
+      extra[field.name] = "";
+    });
+    extraFields.forEach((field) => {
       extra[field.name] = "";
     });
     return { ...BASE_FORM, ...extra };
@@ -92,12 +107,50 @@ export default function EnquiryForm({
     dark ? "border-transparent" : "border-gray-200"
   }`;
 
+  const cityField = (
+    <div>
+      <label className={labelCls}>
+        City <span className="text-red-500">*</span>
+      </label>
+      <select
+        name="city"
+        required
+        value={formData.city}
+        onChange={handleChange}
+        className={selectCls}
+      >
+        <option value="" disabled>Select city</option>
+        {MAJOR_CITIES.map((c) => (
+          <option key={c} value={c}>{c}</option>
+        ))}
+      </select>
+    </div>
+  );
+
+  const stateField = (
+    <div>
+      <label className={labelCls}>
+        State <span className="text-red-500">*</span>
+      </label>
+      <select
+        name="state"
+        required
+        value={formData.state}
+        onChange={handleChange}
+        className={selectCls}
+      >
+        <option value="" disabled>Select state</option>
+        {INDIAN_STATES.map((s) => (
+          <option key={s} value={s}>{s}</option>
+        ))}
+      </select>
+    </div>
+  );
+
   return (
     <div
       id={id}
-      className={`rounded-2xl shadow-[0_0px_8px_rgba(0,0,0,0.06)] p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between ${
-        dark ? "bg-brand-navy border border-blue-900/40" : "bg-white border border-blue-100"
-      }`}
+      className={`rounded-2xl shadow-[0_0px_8px_rgba(0,0,0,0.06)] p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between ${panelClass}`}
     >
       {/* Decorative top accent line (light variant only) */}
       {!dark && (
@@ -108,9 +161,11 @@ export default function EnquiryForm({
         <h3 className={`text-xl sm:text-2xl font-bold mb-1.5 tracking-tight ${dark ? "text-white" : "text-brand-navy"}`}>
           {title}
         </h3>
-        <p className={`text-xs sm:text-sm leading-snug mb-5 ${dark ? "text-gray-300" : "text-gray-500"}`}>
-          {description}
-        </p>
+        {description && (
+          <p className={`text-xs sm:text-sm leading-snug mb-5 ${dark ? "text-gray-300" : "text-gray-500"}`}>
+            {description}
+          </p>
+        )}
 
         {submitted ? (
           <div
@@ -137,7 +192,7 @@ export default function EnquiryForm({
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-3.5">
+          <form onSubmit={handleSubmit} className={twoColumn ? "grid grid-cols-1 sm:grid-cols-2 gap-3.5" : "space-y-3.5"}>
             {/* Full Name */}
             <div>
               <label className={labelCls}>
@@ -186,44 +241,36 @@ export default function EnquiryForm({
               />
             </div>
 
-            {/* City & State Row */}
-            <div className="grid grid-cols-2 gap-3">
+            {/* Email Address (optional) */}
+            {showEmail && (
               <div>
                 <label className={labelCls}>
-                  City <span className="text-red-500">*</span>
+                  Email Address <span className="text-red-500">*</span>
                 </label>
-                <select
-                  name="city"
+                <input
+                  type="email"
+                  name="email"
                   required
-                  value={formData.city}
+                  value={formData.email}
                   onChange={handleChange}
-                  className={selectCls}
-                >
-                  <option value="" disabled>Select city</option>
-                  {MAJOR_CITIES.map((c) => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
+                  placeholder="Enter email address"
+                  className={fieldCls}
+                />
               </div>
+            )}
 
-              <div>
-                <label className={labelCls}>
-                  State <span className="text-red-500">*</span>
-                </label>
-                <select
-                  name="state"
-                  required
-                  value={formData.state}
-                  onChange={handleChange}
-                  className={selectCls}
-                >
-                  <option value="" disabled>Select state</option>
-                  {INDIAN_STATES.map((s) => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
+            {/* City & State */}
+            {twoColumn ? (
+              <>
+                {cityField}
+                {stateField}
+              </>
+            ) : (
+              <div className="grid grid-cols-2 gap-3">
+                {cityField}
+                {stateField}
               </div>
-            </div>
+            )}
 
             {/* Dynamic select fields (e.g. bulk order product & quantity) */}
             {extraSelects.map((field) => (
@@ -246,8 +293,29 @@ export default function EnquiryForm({
               </div>
             ))}
 
+            {/* Dynamic text fields (e.g. website / social profile) */}
+            {extraFields.map((field) => {
+              const isRequired = field.required !== false;
+              return (
+                <div key={field.name}>
+                  <label className={labelCls}>
+                    {field.label} {isRequired && <span className="text-red-500">*</span>}
+                  </label>
+                  <input
+                    type={field.type || "text"}
+                    name={field.name}
+                    required={isRequired}
+                    value={formData[field.name] || ""}
+                    onChange={handleChange}
+                    placeholder={field.placeholder}
+                    className={fieldCls}
+                  />
+                </div>
+              );
+            })}
+
             {/* Details */}
-            <div>
+            <div className={twoColumn && detailsFullWidth ? "sm:col-span-2" : ""}>
               <label className={labelCls}>
                 {detailsLabel} <span className="text-red-500">*</span>
               </label>
@@ -266,9 +334,11 @@ export default function EnquiryForm({
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-brand-blue hover:bg-brand-blue-hover text-white py-3.5 rounded-lg font-bold text-xs sm:text-sm transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
+              className={`w-full bg-brand-blue hover:bg-brand-blue-hover text-white py-3.5 rounded-lg font-bold text-xs sm:text-sm transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer ${
+                twoColumn ? "sm:col-span-2" : ""
+              }`}
             >
-              <span>{loading ? "Submitting..." : "Submit Enquiry"}</span>
+              <span>{loading ? "Submitting..." : submitLabel}</span>
               <ArrowRight className="size-5.5" strokeWidth={1.5} />
             </button>
           </form>

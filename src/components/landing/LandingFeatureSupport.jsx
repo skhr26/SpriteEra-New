@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {
   Tag, Boxes, Truck, Headset, Gem, Cog, FileText, ShieldCheck,
-  Lightbulb, PencilRuler, Box, Users
+  Lightbulb, PencilRuler, Box, Users, Megaphone, TrendingUp
 } from "lucide-react";
 import SectionHeading from "../SectionHeading";
 import { PrimaryButton } from "../Buttons";
@@ -18,7 +18,9 @@ const ICONS = {
   lightbulb: Lightbulb,
   ruler: PencilRuler,
   box: Box,
-  users: Users
+  users: Users,
+  megaphone: Megaphone,
+  trending: TrendingUp
 };
 
 /**
@@ -27,24 +29,25 @@ const ICONS = {
  */
 export default function LandingFeatureSupport({ data }) {
   if (!data) return null;
-  const { tag, title, titleHighlight, description, features, sideCard } = data;
+  const { tag, title, titleHighlight, titleSuffix, description, features, sideCard } = data;
 
   return (
     <section className="w-full bg-white py-16 md:py-20 px-4 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left: heading + feature cards */}
-        <div className="lg:col-span-8 flex flex-col">
+        <div className={`${sideCard ? "lg:col-span-8" : "lg:col-span-12"} flex flex-col`}>
           <SectionHeading
             label={tag}
             title={`${title} `}
             highlight={titleHighlight}
+            titleSuffix={titleSuffix}
             description={description}
             className={data.headingClass || "max-w-none mb-8"}
             titleSize={data.titleSize}
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {features.map((feat) => {
+              {features.map((feat) => {
               const Icon = ICONS[feat.iconType] || Tag;
               return (
                 <div
@@ -54,10 +57,18 @@ export default function LandingFeatureSupport({ data }) {
                   <div className="w-12 h-12 rounded-full bg-brand-light-bubble border border-blue-100 flex items-center justify-center text-brand-accent mb-4">
                     <Icon className="size-6" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-base lg:text-lg font-bold text-brand-navy mb-2">
+                  <h3
+                    className={`text-base lg:text-lg font-bold text-brand-navy mb-2 ${
+                      data.equalCards ? "min-h-[3.5rem]" : ""
+                    }`}
+                  >
                     {feat.title}
                   </h3>
-                  <p className="text-gray-500 text-xs sm:text-[13px] lg:text-sm leading-snug mt-auto">
+                  <p
+                    className={`text-gray-500 text-xs sm:text-[13px] lg:text-sm leading-snug ${
+                      data.equalCards ? "" : "mt-auto"
+                    }`}
+                  >
                     {feat.desc}
                   </p>
                 </div>
@@ -75,7 +86,11 @@ export default function LandingFeatureSupport({ data }) {
                 alt={sideCard.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 33vw"
-                className={`object-contain p-2 sm:p-3 ${sideCard.blend ? "mix-blend-multiply" : ""}`}
+                className={
+                  sideCard.cover
+                    ? `object-cover ${sideCard.position || ""}`
+                    : `object-contain p-2 sm:p-3 ${sideCard.blend ? "mix-blend-multiply" : ""}`
+                }
               />
             </div>
             <div className="p-6 sm:p-7">

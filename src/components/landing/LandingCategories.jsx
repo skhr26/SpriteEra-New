@@ -31,7 +31,7 @@ export default function LandingCategories({ data }) {
   }, [isCarousel]);
 
   if (!data) return null;
-  const { tag, title, titleHighlight, description, actionText, actionHref, items = [] } = data;
+  const { tag, title, titleHighlight, titleSuffix, description, actionText, actionHref, items = [] } = data;
 
   const scrollByCard = (dir) => {
     const el = trackRef.current;
@@ -80,6 +80,7 @@ export default function LandingCategories({ data }) {
             label={tag}
             title={`${title} `}
             highlight={titleHighlight}
+            titleSuffix={titleSuffix}
             description={description}
             className="max-w-2xl"
             titleSize={data.titleSize}

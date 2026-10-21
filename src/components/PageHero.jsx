@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Box, PenTool, Cog, Truck, Users, ShieldCheck, FileText,
-  Lightbulb, PencilRuler, Check, Tag, Boxes, BadgeCheck, Headset
+  Lightbulb, PencilRuler, Check, Tag, Boxes, BadgeCheck, Headset,
+  Megaphone, TrendingUp
 } from "lucide-react";
 import { PrimaryButton, SecondaryButton } from "./Buttons";
 import { Fragment } from "react";
@@ -22,6 +23,8 @@ const ICON_MAP = {
   boxes: Boxes,
   badgeCheck: BadgeCheck,
   headset: Headset,
+  megaphone: Megaphone,
+  trending: TrendingUp,
 };
 
 /**
