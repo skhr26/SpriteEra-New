@@ -10,14 +10,16 @@ export default function SectionHeading({
 }) {
     return (
         <div className={className}>
-            <p className={`text-xs lg:text-sm font-semibold tracking-widest uppercase mb-2 flex items-center gap-2 ${dark ? "text-brand-accent-light" : "text-brand-accent"
-                }`}>
-                <span
-                    className={`w-5 h-[1.5px] ${dark ? "bg-brand-accent-light" : "bg-brand-accent"
-                        }`}
-                />
-                {label}
-            </p>
+            {label && (
+                <p className={`text-xs lg:text-sm font-semibold tracking-widest uppercase mb-2 flex items-center gap-2 ${dark ? "text-brand-accent-light" : "text-brand-accent"
+                    }`}>
+                    <span
+                        className={`w-5 h-[1.5px] ${dark ? "bg-brand-accent-light" : "bg-brand-accent"
+                            }`}
+                    />
+                    {label}
+                </p>
+            )}
 
             <h2 className={`${titleSize} font-bold tracking-tight ${dark ? "text-white" : "text-brand-navy"
                 }`}>

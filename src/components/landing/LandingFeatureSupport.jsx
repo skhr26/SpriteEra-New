@@ -4,7 +4,7 @@ import {
   Lightbulb, PencilRuler, Box, Users, Megaphone, TrendingUp
 } from "lucide-react";
 import SectionHeading from "../SectionHeading";
-import { PrimaryButton } from "../Buttons";
+import { PrimaryButton, SecondaryButton } from "../Buttons";
 
 const ICONS = {
   tag: Tag,
@@ -30,6 +30,7 @@ const ICONS = {
 export default function LandingFeatureSupport({ data }) {
   if (!data) return null;
   const { tag, title, titleHighlight, titleSuffix, description, features, sideCard } = data;
+  const darkSideCard = sideCard?.variant === "dark";
 
   return (
     <section className="w-full bg-white py-16 md:py-20 px-4 md:px-12">
@@ -79,7 +80,13 @@ export default function LandingFeatureSupport({ data }) {
 
         {/* Right: optional side card */}
         {sideCard && (
-          <div className="lg:col-span-4 bg-brand-surface border border-blue-100 rounded-xl overflow-hidden shadow-[0_0px_8px_rgba(0,0,0,0.06)] flex flex-col">
+          <div
+            className={`lg:col-span-4 rounded-xl overflow-hidden shadow-[0_0px_8px_rgba(0,0,0,0.06)] flex flex-col ${
+              darkSideCard
+                ? "bg-brand-navy border border-blue-900/40"
+                : "bg-brand-surface border border-blue-100"
+            }`}
+          >
             <div className="relative flex-1 min-h-[10rem]">
               <Image
                 src={sideCard.image}
@@ -94,15 +101,27 @@ export default function LandingFeatureSupport({ data }) {
               />
             </div>
             <div className="p-6 sm:p-7">
-              <h3 className="text-2xl sm:text-3xl font-bold text-brand-navy mb-3 tracking-tight">
+              <h3
+                className={`text-2xl sm:text-3xl font-bold mb-3 tracking-tight ${
+                  darkSideCard ? "text-white" : "text-brand-navy"
+                }`}
+              >
                 {sideCard.title}
               </h3>
-              <p className="text-gray-600 text-base lg:text-lg leading-snug">
+              <p
+                className={`text-base lg:text-lg leading-snug ${
+                  darkSideCard ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
                 {sideCard.description}
               </p>
               {sideCard.cta && (
                 <div className="mt-5">
-                  <PrimaryButton href={sideCard.cta.href} label={sideCard.cta.label} size="lg" />
+                  {darkSideCard ? (
+                    <SecondaryButton href={sideCard.cta.href} label={sideCard.cta.label} size="lg" />
+                  ) : (
+                    <PrimaryButton href={sideCard.cta.href} label={sideCard.cta.label} size="lg" />
+                  )}
                 </div>
               )}
             </div>

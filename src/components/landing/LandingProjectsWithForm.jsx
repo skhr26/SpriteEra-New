@@ -100,6 +100,9 @@ export default function LandingProjectsWithForm({ data, formData }) {
                 extraFields={formData.extraFields || []}
                 showEmail={formData.showEmail}
                 twoColumn={formData.twoColumn}
+                detailsFullWidth={formData.detailsFullWidth}
+                companyLabel={formData.companyLabel}
+                companyPlaceholder={formData.companyPlaceholder}
                 submitLabel={formData.submitLabel}
                 successMessage={formData.successMessage}
               />

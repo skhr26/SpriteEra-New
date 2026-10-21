@@ -56,6 +56,8 @@ export default function EnquiryForm({
   twoColumn = false,
   detailsFullWidth = true,
   submitLabel = "Submit Enquiry",
+  companyLabel = "Company Name",
+  companyPlaceholder = "Enter company name",
   detailsLabel = "Project Details",
   detailsPlaceholder = "Tell us about your project, building type and lighting requirements...",
   note = "Your information will be used to contact you regarding your enquiry.",
@@ -209,10 +211,10 @@ export default function EnquiryForm({
               />
             </div>
 
-            {/* Company Name */}
+            {/* Company / Organization Name */}
             <div>
               <label className={labelCls}>
-                Company Name <span className="text-red-500">*</span>
+                {companyLabel} <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -220,7 +222,7 @@ export default function EnquiryForm({
                 required
                 value={formData.companyName}
                 onChange={handleChange}
-                placeholder="Enter company name"
+                placeholder={companyPlaceholder}
                 className={fieldCls}
               />
             </div>

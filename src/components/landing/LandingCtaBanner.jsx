@@ -3,11 +3,11 @@ import { PrimaryButton, SecondaryButton, WhatsAppButton, CallButton } from "../B
 
 /**
  * Dark bottom CTA banner used as the page footer for landing pages.
- * Configure via data: { title, description, bgImage, primaryCta, secondaryCta }.
+ * Configure via data: { title, titleHighlight, titleSuffix, description, bgImage, primaryCta, secondaryCta }.
  */
 export default function LandingCtaBanner({ data }) {
   if (!data) return null;
-  const { title, description, bgImage, primaryCta, secondaryCta } = data;
+  const { title, titleHighlight, titleSuffix, description, bgImage, primaryCta, secondaryCta } = data;
 
   return (
     <footer className="relative bg-brand-navy text-white overflow-hidden border-t border-blue-900/40">
@@ -25,6 +25,10 @@ export default function LandingCtaBanner({ data }) {
         <div className="max-w-2xl">
           <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold tracking-tight text-white">
             {title}
+            {titleHighlight && (
+              <span className="text-brand-accent-light">{titleHighlight}</span>
+            )}
+            {titleSuffix}
           </h2>
           <p className="mt-3 max-w-2xl text-sm md:text-base lg:text-lg leading-snug text-gray-300">
             {description}
