@@ -6,7 +6,7 @@ export default function IndustrialWhyChoose({ section, features }) {
   const { tag, title, titleHighlight, description } = section;
 
   return (
-    <section className="relative bg-brand-night text-white py-20 md:py-24 px-4 md:px-12 overflow-hidden">
+    <section className="relative bg-brand-night text-white py-20 md:py-24 overflow-hidden">
       {/* Architectural background with illuminated building on the right */}
       <Image
         src="/images/why-vajra-bg.jpg"
@@ -19,7 +19,7 @@ export default function IndustrialWhyChoose({ section, features }) {
       {/* Deep navy gradient fading towards the building on the right */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-night via-brand-night/90 md:via-brand-night/80 to-brand-night/30 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <SectionHeading
           label={tag}
           title={`${title} `}

@@ -1,4 +1,4 @@
-# Vajra LED Website
+﻿# Vajra LED Website
 
 Marketing website for Vajra LED, built with the Next.js App Router. The site presents lighting products and solutions, supports architects, contractors, dealers and distributors, and captures enquiries through reusable forms.
 
@@ -41,9 +41,12 @@ Open [http://localhost:3000](http://localhost:3000).
 | `/solutions/industrial-lighting` | Industrial lighting |
 | `/solutions/institutional-lighting` | Institutional lighting |
 | `/architect` | Architect programme |
+| `/why-vajra` | Why choose Vajra LED |
+| `/authorized-dealers` | Authorized dealer network |
 | `/projects` | Projects |
 | `/bulk-orders` | Bulk orders |
 | `/contact` | Contact |
+| `/partnerships/architect` | Architectural partnership |
 | `/partnerships/contractor` | Contractor partnership |
 | `/partnerships/dealer` | Dealer partnership |
 | `/partnerships/distributor` | Distributor partnership |
@@ -57,6 +60,7 @@ src/
     layout.jsx            Root layout (Navbar/Footer handled per page)
   components/             Shared UI
     landing/              Reusable landing-page sections
+    dealers/              Dealer network directory
     architect/            Architect page sections
     industrial-lighting/  Industrial lighting page sections
   data/                   Page content objects (hero, sections, FAQs, forms)
@@ -71,7 +75,7 @@ Pages are **data-driven**: each landing-style page composes shared components an
 - **Colors** are defined once as CSS variables in `src/app/globals.css` under `@theme` (for example `brand-navy`, `brand-blue`, `brand-accent`, `brand-surface`, `brand-footer`). Components must use these tokens; do not hardcode hex values.
 - **Headings** use `SectionHeading`, which renders the house style: an uppercase label with a rule, a navy headline and a blue highlight (`title`, `titleHighlight`, optional `titleSuffix`).
 - **Buttons** (`PrimaryButton`, `SecondaryButton`, `GhostButton`, `WhatsAppButton`, `CallButton`, `CatalogueButton`) live in `src/components/Buttons.jsx`.
-- **Heroes** use `PageHero`, which supports breadcrumbs, tag, two-tone title, dual CTAs and a badge strip.
+- **Heroes** use `PageHero`, which supports breadcrumbs, tag, two-tone title, dual CTAs, a badge strip and an optional `imageWrapperClassName` for art-directed hero imagery.
 - **Forms** use `EnquiryForm`, which accepts configurable selects, text fields, labels, two-column layout and light/dark/blue variants.
 
 ### Shared Landing Components
@@ -79,11 +83,16 @@ Pages are **data-driven**: each landing-style page composes shared components an
 | Component | Purpose |
 | --- | --- |
 | `LandingFeatureSupport` | "Why choose" feature cards with an optional light/dark side card |
+| `LandingTrustStrip` | Compact four-item trust strip shown below a hero |
 | `LandingProjectsWithForm` | Project or institution image cards paired with an enquiry form or CTA panel |
 | `LandingCategories` | Product category grid or carousel |
 | `LandingSteps` | Numbered process steps, with optional checklist, FAQ and side form |
 | `LandingFaqColumns` | Standalone two-column FAQ accordion |
 | `LandingPartnerFaq` | Image + checklist on the left, FAQ accordion on the right |
+| `LandingGalleryFaq` | Image gallery on the left, compact FAQ accordion on the right |
+| `LandingAdvantageGrid` | Numbered advantage cards with images and a summary side card |
+| `LandingBenefits` | Row of compact benefit cards |
+| `DealerDirectory` | Authorized dealer directory with state/city filters |
 | `LandingImageCta` | Split image/CTA band |
 | `LandingEnquirySection` | Dark enquiry band with a light form and feature badges |
 | `LandingCtaBanner` | Dark bottom CTA banner used as the footer on landing pages |
@@ -92,7 +101,7 @@ Pages are **data-driven**: each landing-style page composes shared components an
 
 Images are stored under `public/images/` and served through `next/image`. Landing pages use a dark CTA banner instead of the global `Footer` by design; main pages use the shared `Navbar` and `Footer`.
 
-The institutional page imagery in `public/images/institutional/` was generated for this build. Replace it with final brand photography when available.
+The institutional page imagery in `public/images/institutional/` and the why-Vajra imagery in `public/images/why-vajra/` were generated for this build. Replace them with final brand photography when available.
 
 ## Known Placeholders
 
@@ -109,4 +118,5 @@ npm run lint
 npm run build
 ```
 
-The build currently produces the 11 content routes above plus the not-found route.
+The build currently produces the 12 content routes above plus the not-found route.
+

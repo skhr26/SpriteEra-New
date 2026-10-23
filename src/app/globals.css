@@ -28,6 +28,8 @@
   /* Surfaces */
   --color-brand-surface: #eaf3fc;      /* light blue banner bg */
   --color-brand-surface-soft: #f0f6ff; /* project support panel bg */
+  --color-brand-mist: #f5f9fd;         /* trust strip bg */
+  --color-brand-hairline: #e5eff5;     /* light dividers */
   --color-brand-gradient-start: #d9ebfd;
   --color-brand-gradient-mid: #e5f1fe;
   --color-brand-light-bubble: #e1effe; /* icon bubble bg */

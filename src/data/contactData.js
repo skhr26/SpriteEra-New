@@ -49,10 +49,7 @@ export const contactData = {
     tag: "SEND AN ENQUIRY",
     title: "Tell Us What ",
     titleHighlight: "You Need",
-    description: "Fill in the details below and our team will respond with product recommendations, technical data and support for your requirement.",
-    formTitle: "Enquiry Form",
-    formDescription: "Share your project details and our team will get in touch with product information and support.",
-    formSuccessMessage: "Our team will review your requirement and connect with you shortly."
+    description: "Fill in the details below and our team will respond with product recommendations, technical data and support for your requirement."
   },
 
   steps: [

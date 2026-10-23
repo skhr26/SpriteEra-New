@@ -45,25 +45,29 @@ export default function PageHero({
   badgesInline = false,
   minHeight = "min-h-[420px] lg:min-h-[calc(100vh-70px)]",
   imageOpacity = "opacity-60",
+  imageWrapperClassName = "absolute inset-0 z-0",
+  titleClassName = "max-w-3xl",
+  highlightBlock = false,
   highlightFirst = false,
   className = "",
 }) {
   return (
     <section className={`relative bg-brand-navy text-white overflow-hidden flex items-center ${minHeight} ${className}`}>
       {bgImage && (
-        <div className="absolute inset-0 z-0">
+        <div className={imageWrapperClassName}>
           <Image
             src={bgImage}
             alt=""
             fill
             sizes="100vw"
+            preload
             className={`object-cover object-right ${imageOpacity}`}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-hero-scrim via-brand-hero-scrim/20 to-transparent" />
         </div>
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-10 pb-5 w-full">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 pt-10 pb-5 w-full">
         {breadcrumbs.length > 0 && (
           <nav className="flex items-center gap-2 text-xs text-gray-300/80 mb-6 font-medium">
             {breadcrumbs.map((crumb, idx) => {
@@ -90,7 +94,7 @@ export default function PageHero({
           </p>
         )}
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl leading-[1.08] tracking-tight drop-shadow-lg">
+        <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${titleClassName} leading-[1.08] tracking-tight drop-shadow-lg`}>
           {highlightFirst && titleHighlight ? (
             <>
               <span className="text-brand-accent-light">{title}</span>{" "}
@@ -99,7 +103,11 @@ export default function PageHero({
           ) : (
             <>
               {title}{" "}
-              {titleHighlight && <span className="text-brand-accent-light">{titleHighlight}</span>}
+              {titleHighlight && (
+                <span className={`text-brand-accent-light ${highlightBlock ? "block" : ""}`}>
+                  {titleHighlight}
+                </span>
+              )}
             </>
           )}
         </h1>

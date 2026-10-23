@@ -49,7 +49,7 @@ export default function SolutionsPage() {
       />
 
       {/* 2. Solutions / Application Areas */}
-      <section id="solutions" className="py-20 px-4 md:px-12 max-w-7xl mx-auto">
+      <section id="solutions" className="py-20 px-4 sm:px-6 md:px-8 max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10">
           <SectionHeading
             label="OUR SOLUTIONS"
@@ -113,7 +113,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* 3. Product Recommendation CTA (ConsultationBanner pattern) */}
-      <section className="max-w-7xl mx-auto px-4 md:px-12 mb-20">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 mb-20">
         <div className="relative rounded-2xl overflow-hidden border border-blue-100/70 shadow-sm min-h-[290px] md:min-h-[330px] flex items-center bg-brand-surface">
           <Image
             src="/images/consultation-banner.png"
@@ -140,7 +140,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* 4. Featured Products */}
-      <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-16 px-4 sm:px-6 md:px-8 max-w-[1400px] mx-auto border-t border-gray-100">
         <SectionHeading
           label="FEATURED PRODUCTS"
           title="Featured"

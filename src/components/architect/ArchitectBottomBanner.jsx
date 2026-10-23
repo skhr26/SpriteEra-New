@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppButton, CallButton, CatalogueButton } from "../Buttons";
+import EnquiryTrigger from "../enquiry/EnquiryTrigger";
 
 export default function ArchitectBottomBanner({ data }) {
   if (!data) return null;
@@ -24,7 +25,7 @@ export default function ArchitectBottomBanner({ data }) {
       {/* Smooth navy gradient so the copy stays readable on the left */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-brand-navy/40 md:to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 py-14 md:py-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-14 md:py-16">
         <div className="max-w-2xl">
           <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold tracking-tight text-white">
             {title}
@@ -36,13 +37,10 @@ export default function ArchitectBottomBanner({ data }) {
 
         {/* Action Buttons — single row */}
         <div className="flex flex-wrap md:flex-nowrap items-center gap-3 mt-7">
-          <a
-            href="#enquiry"
-            className="bg-white hover:bg-gray-100 text-brand-navy px-5 py-3 rounded lg:rounded-md text-sm lg:text-base font-medium transition shadow-lg inline-flex items-center gap-1.5 whitespace-nowrap"
-          >
+          <EnquiryTrigger className="bg-white hover:bg-gray-100 text-brand-navy px-5 py-3 rounded lg:rounded-md text-sm lg:text-base font-medium transition shadow-lg inline-flex items-center gap-1.5 whitespace-nowrap cursor-pointer">
             <span>Connect With Us</span>
             <ArrowRight className="size-5.5 text-brand-blue" strokeWidth={1.5} />
-          </a>
+          </EnquiryTrigger>
 
           <CatalogueButton className="px-5" />
           <WhatsAppButton className="px-5" />

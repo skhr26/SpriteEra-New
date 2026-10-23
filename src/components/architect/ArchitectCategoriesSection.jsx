@@ -35,8 +35,8 @@ export default function ArchitectCategoriesSection({ data }) {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 px-4 md:px-12">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="w-full bg-white py-16 md:py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 w-full">
         <div className="flex flex-col md:flex-row justify-between items-end gap-4 mb-10">
           <SectionHeading
             label={tag}
@@ -87,7 +87,7 @@ export default function ArchitectCategoriesSection({ data }) {
             <div
               key={cat.id}
               data-card
-              className="snap-start shrink-0 w-[70%] sm:w-[calc(33.333%-10.66px)] lg:w-[calc(20%-12.8px)]"
+              className="snap-start shrink-0 w-[78%] sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.66px)] lg:w-[calc(25%-12px)]"
             >
               <div className="h-full border border-gray-200/90 rounded-xl overflow-hidden group shadow-[0_0px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_5px_15px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 bg-white flex flex-col">
                 <div className="h-44 lg:h-48 overflow-hidden bg-gray-100 relative">

@@ -1,3 +1,5 @@
+import { faqs } from "./faq";
+
 export const architectData = {
   hero: {
     breadcrumbs: [
@@ -205,32 +207,7 @@ export const architectData = {
       tag: "FREQUENTLY ASKED QUESTIONS",
       actionText: "View All FAQs",
       actionHref: "/faq",
-      items: [
-        {
-          q: "Can you provide product samples or mockups?",
-          a: "Yes, we provide product samples and on-site mockup support for architectural projects to help you evaluate light output, color temperature, and aesthetics."
-        },
-        {
-          q: "Do you provide technical specifications (IES files, drawings)?",
-          a: "Yes, complete photometric data, IES files, Dialux simulation files, and 2D/3D technical drawings are available upon request for lighting design and compliance checks."
-        },
-        {
-          q: "Can you help with BOQ and product selection?",
-          a: "Our lighting application engineering team assists with bill of quantities (BOQ) optimization, lux level calculations, and selecting appropriate luminaires for every zone."
-        },
-        {
-          q: "Do you work with large-scale or government projects?",
-          a: "Yes, Vajra LED has extensive experience delivering lighting solutions for institutional, public infrastructure, large townships, and government projects with full compliance."
-        },
-        {
-          q: "How can I get product catalogues and technical details?",
-          a: "You can download our digital catalogues directly from the website or request comprehensive printed specification binders and datasheets from our team."
-        },
-        {
-          q: "Can your team support during project execution?",
-          a: "Yes, we provide end-to-end technical coordination, dispatch planning, installation guidance, and warranty support throughout project execution."
-        }
-      ]
+      items: faqs.architect
     }
   },
 

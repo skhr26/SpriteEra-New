@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 
 export function ConsultationBanner() {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-12 mb-20">
+    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 mb-20">
       <div className="relative rounded-2xl overflow-hidden border border-blue-100/70 shadow-sm min-h-[290px] md:min-h-[330px] flex items-center bg-brand-surface">
         {/* Full Banner Background with Engineer on the right */}
         <Image
@@ -35,7 +35,7 @@ export function ConsultationBanner() {
 
 export function CatalogueBanner() {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-12 mb-20">
+    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 mb-20">
       <div className="bg-gradient-to-r from-brand-gradient-start via-brand-gradient-mid to-brand-gradient-start rounded-2xl px-6 md:px-10 lg:px-14 py-8 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-6 border border-blue-100/90 shadow-[0_4px_20px_rgba(0,102,204,0.08)] relative overflow-hidden">
         {/* Left Catalogue Booklet Cover (Shifted slightly left with negative/outer positioning) */}
         <div className="w-48 sm:w-56 md:w-60 lg:w-64 xl:w-70 flex-shrink-0 flex items-center justify-center md:justify-start order-2 md:order-1 md:-ml-4 lg:-ml-6">

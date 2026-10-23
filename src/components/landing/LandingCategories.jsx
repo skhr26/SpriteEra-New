@@ -11,7 +11,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
  *  - "grid": static 6-per-row grid (no arrows).
  */
 export default function LandingCategories({ data }) {
-  const isCarousel = (data?.variant || "carousel") === "carousel";
+  const isCarousel = true;
   const trackRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
@@ -73,8 +73,8 @@ export default function LandingCategories({ data }) {
   );
 
   return (
-    <section className={`w-full bg-white px-4 md:px-12 ${data.paddingClass || "py-16 md:py-20"}`}>
-      <div className="max-w-7xl mx-auto w-full">
+    <section className={`w-full bg-white ${data.paddingClass || "py-16 md:py-20"}`}>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 w-full">
         <div className="flex flex-col md:flex-row justify-between items-end gap-4 mb-10">
           <SectionHeading
             label={tag}
@@ -133,7 +133,7 @@ export default function LandingCategories({ data }) {
               <div
                 key={cat.id}
                 data-card
-                className="snap-start shrink-0 w-[70%] sm:w-[calc(33.333%-10.66px)] lg:w-[calc(20%-12.8px)]"
+                className="snap-start shrink-0 w-[78%] sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.66px)] lg:w-[calc(25%-12px)]"
               >
                 {renderCard(cat)}
               </div>

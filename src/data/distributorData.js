@@ -1,3 +1,5 @@
+import { faqs } from "./faq";
+
 export const distributorData = {
   hero: {
     breadcrumbs: [
@@ -200,86 +202,11 @@ export const distributorData = {
     faqTitle: "Frequently Asked Questions",
     faqAction: { label: "View All FAQs", href: "/faq" },
     faqTwoColumn: true,
-    faqs: [
-      {
-        q: "Who can become a Vajra LED distributor?",
-        a: "Businesses with an established presence in the electrical or lighting market and a customer network can apply to become a Vajra LED distributor."
-      },
-      {
-        q: "How can I apply to become a distributor?",
-        a: "Share your business details through the enquiry form or contact our team. We will review your requirement and get in touch."
-      },
-      {
-        q: "What products can I distribute?",
-        a: "You can distribute our indoor, outdoor, industrial, street, solar and commercial lighting product ranges."
-      },
-      {
-        q: "Do you provide marketing support?",
-        a: "Yes. We support distributors with product information, marketing materials and sales guidance."
-      },
-      {
-        q: "Can I become a distributor in my city or region?",
-        a: "Yes. Share your location and market details with our team and we will discuss the available distribution opportunity."
-      },
-      {
-        q: "Whom can I contact for more information?",
-        a: "Use the enquiry form on this page or contact our team directly for information on distributor partnerships."
-      }
-    ],
+    faqs: faqs.distributor,
     formData: {
       id: "distributor-enquiry",
-      title: "Distributor Enquiry Form",
-      description: "Share your details and our team will get in touch.",
       variant: "blue",
-      twoColumn: true,
-      showEmail: true,
-      detailsFullWidth: false,
-      submitLabel: "Submit Distributor Enquiry",
-      detailsLabel: "Message",
-      detailsPlaceholder: "Write your message...",
-      note: "Your information will be used to contact you regarding your distributor enquiry.",
-      successMessage:
-        "Our team will review your distributor enquiry and connect with you shortly.",
-      extraSelects: [
-        {
-          name: "businessType",
-          label: "Business Type",
-          placeholder: "Select business type",
-          options: [
-            "Electrical Distributor",
-            "Lighting Distributor",
-            "Regional Distributor",
-            "Multi-Location Distributor",
-            "Other Business Partner"
-          ]
-        },
-        {
-          name: "productCategories",
-          label: "Current Product Categories",
-          placeholder: "Select categories",
-          options: [
-            "Indoor Lighting",
-            "Outdoor Lighting",
-            "Industrial Lighting",
-            "Street Lighting",
-            "Solar Lighting",
-            "Commercial Lighting",
-            "Multiple Categories"
-          ]
-        },
-        {
-          name: "yearsInBusiness",
-          label: "Years in Business",
-          placeholder: "Select experience",
-          options: [
-            "Less than 1 year",
-            "1 - 3 years",
-            "3 - 5 years",
-            "5 - 10 years",
-            "10+ years"
-          ]
-        }
-      ]
+      twoColumn: true
     }
   },
 

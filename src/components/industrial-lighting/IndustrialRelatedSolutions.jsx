@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import SectionHeading from "../SectionHeading";
 import { ArrowRight, Plus } from "lucide-react";
 
@@ -7,8 +7,8 @@ export default function IndustrialRelatedSolutions({ section, solutions }) {
   const { tag, title, titleHighlight, action } = section;
 
   return (
-    <section className="w-full bg-gray-50 py-16 md:py-20 px-4 md:px-12 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full bg-gray-50 py-16 md:py-20 border-t border-b border-gray-200">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10">
           <SectionHeading
             label={tag}

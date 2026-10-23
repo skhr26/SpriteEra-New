@@ -1,3 +1,5 @@
+import { faqs } from "./faq";
+
 export const institutionalData = {
   hero: {
     breadcrumbs: [
@@ -113,17 +115,7 @@ export const institutionalData = {
   },
 
   enquiryForm: {
-    id: "institutional-enquiry",
-    title: "Institutional Enquiry Form",
-    description:
-      "Share your project details and our team will get in touch with suitable product information and support.",
-    companyLabel: "Organization Name",
-    companyPlaceholder: "Enter organization name",
-    detailsLabel: "Project Details",
-    detailsPlaceholder: "Tell us about your institutional requirement...",
-    submitLabel: "Submit Enquiry",
-    successMessage:
-      "Our team will review your institutional requirement and connect with you shortly."
+    id: "institutional-enquiry"
   },
 
   categories: {
@@ -234,28 +226,7 @@ export const institutionalData = {
     ],
     faqTitle: "Frequently Asked Questions",
     faqAction: { label: "View All FAQs", href: "/faq" },
-    faqs: [
-      {
-        q: "Do you supply lighting products for institutional projects?",
-        a: "Yes. We supply a wide range of lighting products for educational, healthcare, government and other institutional projects."
-      },
-      {
-        q: "Can you support bulk requirements for institutions?",
-        a: "Yes. Our team supports bulk and project-based requirements with suitable product recommendations and supply coordination."
-      },
-      {
-        q: "Do you provide technical assistance for product selection?",
-        a: "Yes. We help institutions select suitable lighting products based on application, space and project requirements."
-      },
-      {
-        q: "How can I request a quotation for my institution?",
-        a: "Share your requirement through the enquiry form or contact our team. We will review the details and provide a suitable quotation."
-      },
-      {
-        q: "Do you provide customized lighting solutions?",
-        a: "Yes. Depending on the requirement, our team can recommend suitable product combinations and support customized project needs."
-      }
-    ]
+    faqs: faqs.institutional
   },
 
   bottomBanner: {

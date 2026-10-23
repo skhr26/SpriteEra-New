@@ -17,8 +17,8 @@ export default function ArchitectGalleryAndFaq({ data }) {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 px-4 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <section className="w-full bg-white py-16 md:py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Project Inspiration Gallery */}
         <div className="lg:col-span-6 flex flex-col">
           <SectionHeading

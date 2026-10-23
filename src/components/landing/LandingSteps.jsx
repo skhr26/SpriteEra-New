@@ -48,6 +48,7 @@ export default function LandingSteps({ data }) {
   const hasChecklist = Array.isArray(checklist) && checklist.length > 0;
   const hasFaqs = Array.isArray(faqs) && faqs.length > 0;
   const hasForm = Boolean(formData);
+  const inlineSteps = data.stepsLayout === "inline";
 
   const renderFaqItem = (item, idx) => {
     const isOpen = openIdx === idx;
@@ -115,20 +116,41 @@ export default function LandingSteps({ data }) {
           return (
             <Fragment key={stg.step}>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-brand-light-bubble border border-blue-200/60 text-brand-accent flex items-center justify-center shadow-[0_0px_8px_rgba(0,102,204,0.12)] flex-shrink-0">
-                    <Icon className="size-6" strokeWidth={1.5} />
+                {inlineSteps ? (
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-full bg-brand-light-bubble border border-blue-200/60 text-brand-accent flex items-center justify-center shadow-[0_0px_8px_rgba(0,102,204,0.12)] flex-shrink-0">
+                      <Icon className="size-6" strokeWidth={1.5} />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-xs sm:text-sm font-bold text-brand-accent tracking-wide mb-0.5">
+                        {stg.step}
+                      </span>
+                      <h3 className="font-bold text-base lg:text-lg text-brand-navy mb-1 leading-snug">
+                        {stg.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-snug">
+                        {stg.desc}
+                      </p>
+                    </div>
                   </div>
-                  <span className="text-xl font-bold text-brand-accent tracking-wide">
-                    {stg.step}
-                  </span>
-                </div>
-                <h3 className="font-bold text-lg lg:text-xl text-brand-navy mb-1.5 leading-snug">
-                  {stg.title}
-                </h3>
-                <p className="text-gray-500 text-base leading-snug">
-                  {stg.desc}
-                </p>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-brand-light-bubble border border-blue-200/60 text-brand-accent flex items-center justify-center shadow-[0_0px_8px_rgba(0,102,204,0.12)] flex-shrink-0">
+                        <Icon className="size-6" strokeWidth={1.5} />
+                      </div>
+                      <span className="text-xl font-bold text-brand-accent tracking-wide">
+                        {stg.step}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-lg lg:text-xl text-brand-navy mb-1.5 leading-snug">
+                      {stg.title}
+                    </h3>
+                    <p className="text-gray-500 text-base leading-snug">
+                      {stg.desc}
+                    </p>
+                  </>
+                )}
               </div>
               {!isLast && (
                 <div className="hidden lg:flex items-start pt-3 text-gray-300 flex-shrink-0">
@@ -198,29 +220,16 @@ export default function LandingSteps({ data }) {
   );
 
   return (
-    <section className={`w-full ${data.sectionClass || "bg-white"} px-4 md:px-12 ${data.paddingClass || "py-16 md:py-20"}`}>
-      <div className="max-w-7xl mx-auto">
+    <section className={`w-full ${data.sectionClass || "bg-white"} ${data.paddingClass || "py-16 md:py-20"}`}>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         {hasForm ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-8">{content}</div>
             <div className="lg:col-span-4 lg:sticky lg:top-8">
               <EnquiryForm
                 id={formData.id || "enquiry"}
-                title={formData.title}
-                description={formData.description}
-                detailsLabel={formData.detailsLabel}
-                detailsPlaceholder={formData.detailsPlaceholder}
-                note={formData.note}
-                variant={formData.variant}
-                extraSelects={formData.extraSelects || []}
-                extraFields={formData.extraFields || []}
-                showEmail={formData.showEmail}
+                variant={formData.variant || "light"}
                 twoColumn={formData.twoColumn}
-                detailsFullWidth={formData.detailsFullWidth}
-                companyLabel={formData.companyLabel}
-                companyPlaceholder={formData.companyPlaceholder}
-                submitLabel={formData.submitLabel}
-                successMessage={formData.successMessage}
               />
             </div>
           </div>

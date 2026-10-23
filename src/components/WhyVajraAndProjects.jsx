@@ -37,7 +37,7 @@ export default function WhyVajraAndProjects() {
   return (
     <>
       {/* --- WHY VAJRA LED --- */}
-      <section className="relative bg-brand-night text-white py-20 md:py-24 px-4 md:px-12 overflow-hidden">
+      <section className="relative bg-brand-night text-white py-20 md:py-24 overflow-hidden">
         {/* Architectural background with illuminated building on the right */}
         <Image
           src="/images/why-vajra-bg.jpg"
@@ -49,7 +49,7 @@ export default function WhyVajraAndProjects() {
         {/* Deep navy gradient on left fading towards building on right */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-night via-brand-night/90 md:via-brand-night/80 to-brand-night/20 pointer-events-none" />
 
-        <div className="relative z-10 px-4 md:px-12 max-w-7xl mx-auto">
+        <div className="relative z-10 px-4 sm:px-6 md:px-8 max-w-[1400px] mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
             Why Choose <span className="text-brand-accent-glow">Vajra LED</span>
           </h2>
@@ -78,7 +78,7 @@ export default function WhyVajraAndProjects() {
       </section>
 
       {/* --- PROJECTS --- */}
-      <section className="py-20 px-4 md:px-12 max-w-7xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 md:px-8 max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10">
           <SectionHeading
             label="OUR PROJECTS"
@@ -129,7 +129,7 @@ export default function WhyVajraAndProjects() {
             <div
               key={project.id}
               data-card
-              className="snap-start shrink-0 w-[70%] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(20%-9.6px)]"
+              className="snap-start shrink-0 w-[78%] sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10px)] lg:w-[calc(25%-12px)]"
             >
               <Link
                 href={project.link || "#"}

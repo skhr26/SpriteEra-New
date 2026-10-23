@@ -35,7 +35,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section className="py-16 md:py-20 px-4 md:px-12 max-w-7xl mx-auto border-t border-gray-100">
+    <section className="py-16 md:py-20 px-4 sm:px-6 md:px-8 max-w-[1400px] mx-auto border-t border-gray-100">
       <div className="flex flex-col md:flex-row justify-between items-end mb-10">
         <SectionHeading
           label="FEATURED PRODUCTS"
@@ -87,7 +87,7 @@ export default function FeaturedProducts() {
           <div
             key={prod.id || prod.title}
             data-card
-            className="snap-start shrink-0 w-[82%] sm:w-[calc(33.333%-10.66px)] lg:w-[calc(20%-12.8px)]"
+            className="snap-start shrink-0 w-[80%] sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.66px)] lg:w-[calc(25%-12px)]"
           >
             <Link
               href={prod.link || "#"}

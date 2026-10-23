@@ -1,3 +1,5 @@
+import { faqs } from "./faq";
+
 export const bulkOrdersData = {
   hero: {
     breadcrumbs: [
@@ -110,42 +112,7 @@ export const bulkOrdersData = {
   },
 
   enquiryForm: {
-    variant: "light",
-    title: "Bulk Order Enquiry Form",
-    description:
-      "Share your requirement and our team will get in touch with suitable product options and pricing.",
-    detailsLabel: "Requirement Details",
-    detailsPlaceholder: "Tell us about your project / requirement...",
-    successMessage:
-      "Our bulk orders team will review your requirement and connect with you shortly with suitable product options and pricing.",
-    extraSelects: [
-      {
-        name: "product",
-        label: "Product Required",
-        placeholder: "Select product category",
-        options: [
-          "Indoor Lighting",
-          "Outdoor Lighting",
-          "Industrial Lighting",
-          "Street Lighting",
-          "Solar Lighting",
-          "Commercial Lighting",
-          "Multiple Categories"
-        ]
-      },
-      {
-        name: "quantity",
-        label: "Approximate Quantity",
-        placeholder: "Select quantity range",
-        options: [
-          "Below 100 units",
-          "100 - 500 units",
-          "500 - 1000 units",
-          "1000 - 5000 units",
-          "5000+ units"
-        ]
-      }
-    ]
+    variant: "light"
   },
 
   categories: {
@@ -246,24 +213,7 @@ export const bulkOrdersData = {
     ],
     faqTitle: "Frequently Asked Questions",
     faqAction: { label: "View All FAQs", href: "/faq" },
-    faqs: [
-      {
-        q: "What is considered a bulk order?",
-        a: "A bulk order typically refers to large quantity lighting requirements, usually 100 units or more, depending on the product category."
-      },
-      {
-        q: "Do you provide quotation for large quantity orders?",
-        a: "Yes. Share your requirement and our team will provide a detailed quotation with the best pricing for your order quantity."
-      },
-      {
-        q: "Can you supply products for government or institutional projects?",
-        a: "Yes, we supply lighting products for government, institutional and infrastructure projects across India."
-      },
-      {
-        q: "What information do you need for a quotation?",
-        a: "Product category, approximate quantity, delivery location and any specific technical requirements help us prepare an accurate quotation."
-      }
-    ]
+    faqs: faqs.bulkOrders
   },
 
   bottomBanner: {

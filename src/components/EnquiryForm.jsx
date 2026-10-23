@@ -1,68 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Lock, CheckCircle2 } from "lucide-react";
-
-const INDIAN_STATES = [
-  "Delhi NCR",
-  "Maharashtra",
-  "Karnataka",
-  "Tamil Nadu",
-  "Gujarat",
-  "Telangana",
-  "West Bengal",
-  "Rajasthan",
-  "Uttar Pradesh",
-  "Punjab",
-  "Haryana",
-  "Madhya Pradesh",
-  "Kerala",
-  "Other"
-];
-
-const MAJOR_CITIES = [
-  "New Delhi",
-  "Mumbai",
-  "Bengaluru",
-  "Hyderabad",
-  "Chennai",
-  "Ahmedabad",
-  "Pune",
-  "Kolkata",
-  "Jaipur",
-  "Chandigarh",
-  "Lucknow",
-  "Other"
-];
+import {
+  CATEGORY_OPTIONS,
+  PRODUCT_OPTIONS,
+  getEnquiryContent
+} from "../data/enquiry";
 
 const BASE_FORM = {
   fullName: "",
   companyName: "",
   mobile: "",
   email: "",
-  city: "",
-  state: "",
+  product: "",
+  category: "",
   projectDetails: ""
 };
 
 export default function EnquiryForm({
   id = "enquiry",
-  title = "Architect Enquiry Form",
-  description = "Share your project details and our team will get in touch with product information and support.",
-  successMessage = "Our architectural project specialist will review your project details and connect with you shortly.",
-  extraSelects = [],
-  extraFields = [],
-  showEmail = false,
+  variant = "light",
   twoColumn = false,
-  detailsFullWidth = true,
-  submitLabel = "Submit Enquiry",
-  companyLabel = "Company Name",
-  companyPlaceholder = "Enter company name",
-  detailsLabel = "Project Details",
-  detailsPlaceholder = "Tell us about your project, building type and lighting requirements...",
-  note = "Your information will be used to contact you regarding your enquiry.",
-  variant = "light"
+  isPopup = false,
+  source,
+  className = ""
 }) {
+  const pathname = usePathname();
+  const content = getEnquiryContent(source || pathname);
+
   const dark = variant === "dark" || variant === "blue";
   const panelClass =
     variant === "blue"
@@ -71,30 +38,18 @@ export default function EnquiryForm({
         ? "bg-brand-navy border border-blue-900/40"
         : "bg-white border border-blue-100";
 
-  const makeInitialForm = () => {
-    const extra = {};
-    extraSelects.forEach((field) => {
-      extra[field.name] = "";
-    });
-    extraFields.forEach((field) => {
-      extra[field.name] = "";
-    });
-    return { ...BASE_FORM, ...extra };
-  };
-
-  const [formData, setFormData] = useState(makeInitialForm);
+  const [formData, setFormData] = useState(() => ({ ...BASE_FORM }));
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     setLoading(true);
-    // Simulate submission delay
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -109,41 +64,41 @@ export default function EnquiryForm({
     dark ? "border-transparent" : "border-gray-200"
   }`;
 
-  const cityField = (
+  const productField = (
     <div>
       <label className={labelCls}>
-        City <span className="text-red-500">*</span>
+        {content.productLabel} <span className="text-red-500">*</span>
       </label>
       <select
-        name="city"
+        name="product"
         required
-        value={formData.city}
+        value={formData.product}
         onChange={handleChange}
         className={selectCls}
       >
-        <option value="" disabled>Select city</option>
-        {MAJOR_CITIES.map((c) => (
-          <option key={c} value={c}>{c}</option>
+        <option value="" disabled>Select product</option>
+        {PRODUCT_OPTIONS.map((product) => (
+          <option key={product} value={product}>{product}</option>
         ))}
       </select>
     </div>
   );
 
-  const stateField = (
+  const categoryField = (
     <div>
       <label className={labelCls}>
-        State <span className="text-red-500">*</span>
+        {content.categoryLabel} <span className="text-red-500">*</span>
       </label>
       <select
-        name="state"
+        name="category"
         required
-        value={formData.state}
+        value={formData.category}
         onChange={handleChange}
         className={selectCls}
       >
-        <option value="" disabled>Select state</option>
-        {INDIAN_STATES.map((s) => (
-          <option key={s} value={s}>{s}</option>
+        <option value="" disabled>Select category</option>
+        {CATEGORY_OPTIONS.map((category) => (
+          <option key={category} value={category}>{category}</option>
         ))}
       </select>
     </div>
@@ -152,20 +107,19 @@ export default function EnquiryForm({
   return (
     <div
       id={id}
-      className={`rounded-2xl shadow-[0_0px_8px_rgba(0,0,0,0.06)] p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between ${panelClass}`}
+      className={`rounded-2xl shadow-[0_0px_8px_rgba(0,0,0,0.06)] p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between ${panelClass} ${className}`}
     >
-      {/* Decorative top accent line (light variant only) */}
       {!dark && (
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-accent to-brand-blue" />
       )}
 
       <div>
         <h3 className={`text-xl sm:text-2xl font-bold mb-1.5 tracking-tight ${dark ? "text-white" : "text-brand-navy"}`}>
-          {title}
+          {content.title}
         </h3>
-        {description && (
+        {content.description && (
           <p className={`text-xs sm:text-sm leading-snug mb-5 ${dark ? "text-gray-300" : "text-gray-500"}`}>
-            {description}
+            {content.description}
           </p>
         )}
 
@@ -180,13 +134,13 @@ export default function EnquiryForm({
               Thank You for Reaching Out!
             </h4>
             <p className={`text-xs sm:text-sm ${dark ? "text-gray-200" : "text-gray-600"}`}>
-              {successMessage}
+              {content.successMessage}
             </p>
             <button
               type="button"
               onClick={() => {
                 setSubmitted(false);
-                setFormData(makeInitialForm());
+                setFormData({ ...BASE_FORM });
               }}
               className={`mt-4 text-xs font-semibold hover:underline ${dark ? "text-brand-accent-light" : "text-brand-accent"}`}
             >
@@ -194,8 +148,10 @@ export default function EnquiryForm({
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className={twoColumn ? "grid grid-cols-1 sm:grid-cols-2 gap-3.5" : "space-y-3.5"}>
-            {/* Full Name */}
+          <form
+            onSubmit={handleSubmit}
+            className={twoColumn ? "grid grid-cols-1 sm:grid-cols-2 gap-3.5" : "space-y-3.5"}
+          >
             <div>
               <label className={labelCls}>
                 Full Name <span className="text-red-500">*</span>
@@ -204,6 +160,7 @@ export default function EnquiryForm({
                 type="text"
                 name="fullName"
                 required
+                autoComplete="name"
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your name"
@@ -211,23 +168,22 @@ export default function EnquiryForm({
               />
             </div>
 
-            {/* Company / Organization Name */}
             <div>
               <label className={labelCls}>
-                {companyLabel} <span className="text-red-500">*</span>
+                {content.companyLabel} <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 name="companyName"
                 required
+                autoComplete="organization"
                 value={formData.companyName}
                 onChange={handleChange}
-                placeholder={companyPlaceholder}
+                placeholder={content.companyPlaceholder}
                 className={fieldCls}
               />
             </div>
 
-            {/* Mobile Number */}
             <div>
               <label className={labelCls}>
                 Mobile Number <span className="text-red-500">*</span>
@@ -236,6 +192,7 @@ export default function EnquiryForm({
                 type="tel"
                 name="mobile"
                 required
+                autoComplete="tel"
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="Enter mobile number"
@@ -243,96 +200,49 @@ export default function EnquiryForm({
               />
             </div>
 
-            {/* Email Address (optional) */}
-            {showEmail && (
-              <div>
-                <label className={labelCls}>
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter email address"
-                  className={fieldCls}
-                />
-              </div>
-            )}
+            <div>
+              <label className={labelCls}>
+                Email Address <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter email address"
+                className={fieldCls}
+              />
+            </div>
 
-            {/* City & State */}
             {twoColumn ? (
               <>
-                {cityField}
-                {stateField}
+                {productField}
+                {categoryField}
               </>
             ) : (
-              <div className="grid grid-cols-2 gap-3">
-                {cityField}
-                {stateField}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {productField}
+                {categoryField}
               </div>
             )}
 
-            {/* Dynamic select fields (e.g. bulk order product & quantity) */}
-            {extraSelects.map((field) => (
-              <div key={field.name}>
-                <label className={labelCls}>
-                  {field.label} <span className="text-red-500">*</span>
-                </label>
-                <select
-                  name={field.name}
-                  required
-                  value={formData[field.name] || ""}
-                  onChange={handleChange}
-                  className={selectCls}
-                >
-                  <option value="" disabled>{field.placeholder}</option>
-                  {field.options.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
-            ))}
-
-            {/* Dynamic text fields (e.g. website / social profile) */}
-            {extraFields.map((field) => {
-              const isRequired = field.required !== false;
-              return (
-                <div key={field.name}>
-                  <label className={labelCls}>
-                    {field.label} {isRequired && <span className="text-red-500">*</span>}
-                  </label>
-                  <input
-                    type={field.type || "text"}
-                    name={field.name}
-                    required={isRequired}
-                    value={formData[field.name] || ""}
-                    onChange={handleChange}
-                    placeholder={field.placeholder}
-                    className={fieldCls}
-                  />
-                </div>
-              );
-            })}
-
-            {/* Details */}
-            <div className={twoColumn && detailsFullWidth ? "sm:col-span-2" : ""}>
+            <div className={twoColumn ? "sm:col-span-2" : ""}>
               <label className={labelCls}>
-                {detailsLabel} <span className="text-red-500">*</span>
+                {content.queryLabel} <span className="text-red-500">*</span>
               </label>
               <textarea
                 name="projectDetails"
                 required
-                rows={3}
+                rows={isPopup ? 2 : 3}
                 value={formData.projectDetails}
                 onChange={handleChange}
-                placeholder={detailsPlaceholder}
+                placeholder={content.queryPlaceholder}
                 className={`${fieldCls} resize-none`}
               />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -340,21 +250,20 @@ export default function EnquiryForm({
                 twoColumn ? "sm:col-span-2" : ""
               }`}
             >
-              <span>{loading ? "Submitting..." : submitLabel}</span>
+              <span>{loading ? "Submitting..." : content.submitLabel}</span>
               <ArrowRight className="size-5.5" strokeWidth={1.5} />
             </button>
           </form>
         )}
       </div>
 
-      {/* Security Footnote */}
       <div
         className={`mt-4 pt-3 border-t flex items-center justify-center gap-1.5 text-[11px] text-gray-400 ${
           dark ? "border-white/10" : "border-gray-100"
         }`}
       >
         <Lock className="w-3 h-3 text-gray-400 flex-shrink-0" />
-        <span>{note}</span>
+        <span>{content.note}</span>
       </div>
     </div>
   );

@@ -46,8 +46,8 @@ export default function LandingFaqColumns({ data }) {
   };
 
   return (
-    <section className={`w-full bg-white px-4 md:px-12 ${data.paddingClass || "py-16 md:py-20"}`}>
-      <div className="max-w-7xl mx-auto">
+    <section className={`w-full bg-white ${data.paddingClass || "py-16 md:py-20"}`}>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end gap-4 mb-10">
           <SectionHeading
             label={tag}

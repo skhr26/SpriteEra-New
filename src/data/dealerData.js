@@ -222,78 +222,7 @@ export const dealerData = {
     ],
     form: {
       id: "dealer-enquiry",
-      title: "Dealer Enquiry Form",
-      description: "",
-      twoColumn: true,
-      showEmail: true,
-      submitLabel: "Submit Dealer Enquiry",
-      note: "Your information will be used to contact you regarding your dealer enquiry.",
-      successMessage:
-        "Our team will review your dealer enquiry and connect with you shortly.",
-      detailsLabel: "Message",
-      detailsPlaceholder: "Write your message...",
-      extraSelects: [
-        {
-          name: "businessType",
-          label: "Business Type",
-          placeholder: "Select business type",
-          options: [
-            "Electrical Dealer",
-            "Lighting Retailer",
-            "Distributor",
-            "Building Material Dealer",
-            "Lighting Showroom",
-            "Other Business Partner"
-          ]
-        },
-        {
-          name: "productCategories",
-          label: "Current Product Categories",
-          placeholder: "Select product category",
-          options: [
-            "Indoor Lighting",
-            "Outdoor Lighting",
-            "Industrial Lighting",
-            "Street Lighting",
-            "Solar Lighting",
-            "Commercial Lighting",
-            "Multiple Categories"
-          ]
-        },
-        {
-          name: "yearsInBusiness",
-          label: "Years in Business",
-          placeholder: "Select experience",
-          options: [
-            "Less than 1 year",
-            "1 - 3 years",
-            "3 - 5 years",
-            "5 - 10 years",
-            "10+ years"
-          ]
-        },
-        {
-          name: "expectedRequirement",
-          label: "Expected Business Requirement",
-          placeholder: "Select requirement",
-          options: [
-            "Product Range Information",
-            "Dealer Pricing",
-            "Territory Discussion",
-            "Bulk Supply",
-            "Other"
-          ]
-        }
-      ],
-      extraFields: [
-        {
-          name: "website",
-          label: "Website / Social Profile",
-          placeholder: "Enter website or profile link",
-          type: "text",
-          required: false
-        }
-      ]
+      twoColumn: true
     }
   }
 };

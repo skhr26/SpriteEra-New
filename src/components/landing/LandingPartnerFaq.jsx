@@ -30,11 +30,11 @@ export default function LandingPartnerFaq({ data }) {
 
   return (
     <section
-      className={`w-full ${data.sectionClass || "bg-white"} px-4 md:px-12 ${
+      className={`w-full ${data.sectionClass || "bg-white"} ${
         data.paddingClass || "py-16 md:py-20"
       }`}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left: heading + image + checklist */}
         <div className="lg:col-span-7">
           <SectionHeading

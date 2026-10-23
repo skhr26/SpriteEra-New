@@ -1,3 +1,5 @@
+import { faqs } from "./faq";
+
 export const contractorData = {
   hero: {
     breadcrumbs: [
@@ -109,15 +111,7 @@ export const contractorData = {
   },
 
   enquiryForm: {
-    variant: "dark",
-    title: "Contractor Enquiry Form",
-    description: "Share your project details and our team will get in touch.",
-    detailsLabel: "Project Details",
-    detailsPlaceholder: "Tell us about your project requirement...",
-    note: "Your information will be used to contact you regarding your enquiry.",
-    successMessage:
-      "Our team will review your project details and connect with you shortly.",
-    extraSelects: []
+    variant: "dark"
   },
 
   categories: {
@@ -218,32 +212,7 @@ export const contractorData = {
     titleHighlight: "Questions",
     actionText: "View All FAQs",
     actionHref: "/faq",
-    faqs: [
-      {
-        q: "Can contractors work directly with Vajra LED?",
-        a: "Yes. Contractors can work directly with Vajra LED for product supply, competitive pricing and dedicated project support."
-      },
-      {
-        q: "Do you provide technical support for product selection?",
-        a: "Yes. Our team provides application guidance and helps you select the right lighting products for your project."
-      },
-      {
-        q: "Can you help with BOQ and product recommendations?",
-        a: "Yes. Share your BOQ or requirement list and we will recommend suitable products along with pricing."
-      },
-      {
-        q: "What types of projects do you support?",
-        a: "We support commercial, residential, industrial, institutional, infrastructure and hospitality projects."
-      },
-      {
-        q: "Do you provide products for large-scale projects?",
-        a: "Yes, we supply lighting products in large quantities for projects of all scales."
-      },
-      {
-        q: "How can I get a quotation for my project?",
-        a: "Share your project details through the enquiry form or contact our team and we will provide a detailed quotation."
-      }
-    ]
+    faqs: faqs.contractor
   },
 
   bottomBanner: {

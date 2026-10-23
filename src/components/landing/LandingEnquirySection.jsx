@@ -22,7 +22,7 @@ export default function LandingEnquirySection({ data }) {
 
   return (
     <section className="relative w-full bg-brand-navy text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-12 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* Left: content */}
         <div className="lg:col-span-5">
           {tag && (
@@ -83,18 +83,8 @@ export default function LandingEnquirySection({ data }) {
         <div className="lg:col-span-7">
           <EnquiryForm
             id={form.id || "enquiry"}
-            title={form.title}
-            description={form.description}
-            successMessage={form.successMessage}
-            extraSelects={form.extraSelects || []}
-            extraFields={form.extraFields || []}
-            detailsLabel={form.detailsLabel}
-            detailsPlaceholder={form.detailsPlaceholder}
-            note={form.note}
-            variant="light"
-            showEmail={form.showEmail}
+            variant={form.variant || "light"}
             twoColumn={form.twoColumn}
-            submitLabel={form.submitLabel}
           />
         </div>
       </div>

@@ -10,8 +10,9 @@ export default function LandingImageCta({ data }) {
   const { title, titleHighlight, description, image, cta } = data;
 
   return (
-    <section className="w-full bg-white px-4 md:px-12 py-6 md:py-8">
-      <div className="max-w-7xl mx-auto bg-brand-surface-soft border border-blue-100 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,102,204,0.08)] grid grid-cols-1 md:grid-cols-12 items-center">
+    <section className="w-full bg-white py-6 md:py-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="bg-brand-surface-soft border border-blue-100 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,102,204,0.08)] grid grid-cols-1 md:grid-cols-12 items-center">
         <div className="relative md:col-span-5 h-44 sm:h-52 md:h-60">
           <Image
             src={image}
@@ -41,6 +42,7 @@ export default function LandingImageCta({ data }) {
               className="flex-shrink-0"
             />
           )}
+        </div>
         </div>
       </div>
     </section>

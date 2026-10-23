@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionHeading from "../SectionHeading";
 import { WhatsAppButton, CallButton } from "../Buttons";
+import EnquiryTrigger from "../enquiry/EnquiryTrigger";
 import { Cog, ClipboardList, FileText, MapPin, ArrowRight } from "lucide-react";
 
 const BADGE_ICONS = {
@@ -28,7 +29,7 @@ export default function IndustrialBottomBanner({ data }) {
       {/* Gradient overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-deep via-brand-navy-deep/85 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-14 md:pt-16 pb-6">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 pt-14 md:pt-16 pb-6">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-10 border-b border-blue-400/20">
           {/* Left copy */}
           <SectionHeading
@@ -41,13 +42,10 @@ export default function IndustrialBottomBanner({ data }) {
 
           {/* Action buttons */}
           <div className="flex flex-col gap-3 w-full sm:w-auto">
-            <a
-              href={quoteCta.href}
-              className="w-full sm:w-auto bg-white hover:bg-gray-100 text-brand-footer-text px-7 py-3 rounded-md text-sm lg:text-base font-medium transition md:shadow-lg flex items-center justify-center gap-2"
-            >
+            <EnquiryTrigger className="w-full sm:w-auto bg-white hover:bg-gray-100 text-brand-footer-text px-7 py-3 rounded-md text-sm lg:text-base font-medium transition md:shadow-lg flex items-center justify-center gap-2 cursor-pointer">
               <span>{quoteCta.label}</span>
               <ArrowRight className="size-5.5" strokeWidth={1.5} />
-            </a>
+            </EnquiryTrigger>
 
             <div className="flex flex-row items-center gap-2.5 w-full sm:w-auto">
               <WhatsAppButton

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function SolutionsGrid() {
   return (
-    <section id="solutions" className="py-20 px-4 md:px-12 max-w-7xl mx-auto">
+    <section id="solutions" className="py-20 px-4 sm:px-6 md:px-8 max-w-[1400px] mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-end mb-10">
         <SectionHeading
           label="OUR SOLUTIONS"

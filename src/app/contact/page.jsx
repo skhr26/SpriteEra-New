@@ -44,57 +44,61 @@ export default function ContactPage() {
       />
 
       {/* 3. Contact Methods */}
-      <section className="w-full bg-white py-16 md:py-20 px-4 md:px-12">
-        <SectionHeading
-          label="QUICK CONNECT"
-          title="Choose How You'd Like to "
-          highlight="Reach Us"
-          description="Pick the channel that suits you — every query reaches a real member of our team."
-          className="max-w-3xl mb-12"
-        />
+      <section className="w-full bg-white py-16 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+          <SectionHeading
+            label="QUICK CONNECT"
+            title="Choose How You'd Like to "
+            highlight="Reach Us"
+            description="Pick the channel that suits you — every query reaches a real member of our team."
+            className="max-w-3xl mb-12"
+          />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {contactMethods.map((method) => {
-            const Icon = METHOD_ICONS[method.icon];
-            return (
-              <div
-                key={method.id}
-                className="border border-gray-200/90 rounded-xl p-6 flex flex-col items-start shadow-[0_0px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_5px_15px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 bg-white"
-              >
-                {/* Icon bubble */}
-                <div className="w-11 h-11 rounded-full bg-brand-light-bubble border border-blue-200/60 text-brand-accent flex items-center justify-center shadow-[0_0px_8px_rgba(0,102,204,0.12)] mb-4">
-                  {method.icon === "whatsapp" ? (
-                    <WhatsAppIcon className="w-5 h-5 text-brand-accent fill-current" />
-                  ) : (
-                    Icon && <Icon className="size-5" strokeWidth={1.8} />
-                  )}
-                </div>
-
-                <h3 className="text-base lg:text-lg font-bold text-brand-navy mb-1.5">
-                  {method.title}
-                </h3>
-                <p className="text-gray-500 text-xs sm:text-[13px] leading-snug mb-5 flex-grow">
-                  {method.desc}
-                </p>
-
-                <a
-                  href={method.cta.href}
-                  {...(method.cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  {...(method.cta.download ? { download: true } : {})}
-                  className="text-brand-blue font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all hover:text-brand-blue-hover mt-auto"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+            {contactMethods.map((method) => {
+              const Icon = METHOD_ICONS[method.icon];
+              return (
+                <div
+                  key={method.id}
+                  className="h-full border border-gray-200/90 rounded-xl p-6 flex flex-col justify-between items-start shadow-[0_0px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_5px_15px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 bg-white"
                 >
-                  <span>{method.cta.label}</span>
-                  <ArrowRight className="size-5.5" strokeWidth={1.5} />
-                </a>
-              </div>
-            );
-          })}
+                  <div>
+                    {/* Icon bubble */}
+                    <div className="w-11 h-11 rounded-full bg-brand-light-bubble border border-blue-200/60 text-brand-accent flex items-center justify-center shadow-[0_0px_8px_rgba(0,102,204,0.12)] mb-4">
+                      {method.icon === "whatsapp" ? (
+                        <WhatsAppIcon className="w-5 h-5 text-brand-accent fill-current" />
+                      ) : (
+                        Icon && <Icon className="size-5" strokeWidth={1.8} />
+                      )}
+                    </div>
+
+                    <h3 className="text-base lg:text-lg font-bold text-brand-navy mb-1.5 min-h-[2.5rem] flex items-start">
+                      {method.title}
+                    </h3>
+                    <p className="text-gray-500 text-xs sm:text-[13px] leading-snug mb-5">
+                      {method.desc}
+                    </p>
+                  </div>
+
+                  <a
+                    href={method.cta.href}
+                    {...(method.cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(method.cta.download ? { download: true } : {})}
+                    className="text-brand-blue font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all hover:text-brand-blue-hover mt-auto"
+                  >
+                    <span>{method.cta.label}</span>
+                    <ArrowRight className="size-5.5" strokeWidth={1.5} />
+                  </a>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* 4. Enquiry Form + What Happens Next */}
-      <section className="w-full bg-gray-50 py-16 md:py-20 px-4 md:px-12 border-t border-b border-gray-200">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="w-full bg-gray-50 py-16 md:py-20 border-t border-b border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Heading + 3 Steps */}
           <div className="lg:col-span-7 flex flex-col">
             <SectionHeading
@@ -130,11 +134,7 @@ export default function ContactPage() {
 
           {/* Right Column: Shared Enquiry Form (sticky, same as architect page) */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <EnquiryForm
-              title={formPanel.formTitle}
-              description={formPanel.formDescription}
-              successMessage={formPanel.formSuccessMessage}
-            />
+            <EnquiryForm />
           </div>
         </div>
       </section>

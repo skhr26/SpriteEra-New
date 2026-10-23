@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionHeading from "../SectionHeading";
 import { Lightbulb, CheckSquare, FileText, Headphones, PackageCheck } from "lucide-react";
+import EnquiryTrigger from "../enquiry/EnquiryTrigger";
 
 const POINT_ICONS = [
   <Lightbulb key="1" className="w-5 h-5 text-brand-accent" strokeWidth={2.2} />,
@@ -15,8 +16,9 @@ export default function IndustrialProjectSupport({ data }) {
   const { tag, title, titleHighlight, description, ctas, points, image } = data;
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 px-4 md:px-12">
-      <div className="max-w-7xl mx-auto bg-brand-surface-soft/70 rounded-2xl border border-blue-100 overflow-hidden shadow-[0_0px_8px_rgba(0,0,0,0.06)] flex flex-col lg:flex-row items-stretch justify-between">
+    <section className="w-full bg-white py-16 md:py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="bg-brand-surface-soft/70 rounded-2xl border border-blue-100 overflow-hidden shadow-[0_0px_8px_rgba(0,0,0,0.06)] flex flex-col lg:flex-row items-stretch justify-between">
         {/* Left Column: Heading, description & CTAs */}
         <div className="p-8 sm:p-10 lg:p-12 lg:max-w-md xl:max-w-lg flex flex-col justify-center flex-shrink-0">
           <SectionHeading
@@ -27,24 +29,18 @@ export default function IndustrialProjectSupport({ data }) {
             className="mb-8"
           />
           <div className="flex flex-nowrap items-center gap-3.5 mt-auto">
-            <a
-              href={ctas[0].href}
-              className="bg-brand-blue hover:bg-brand-blue-hover text-white px-4 sm:px-6 py-3 rounded lg:rounded-md text-xs sm:text-sm font-medium transition shadow-lg inline-flex items-center gap-1.5 whitespace-nowrap"
-            >
+            <EnquiryTrigger className="bg-brand-blue hover:bg-brand-blue-hover text-white px-4 sm:px-6 py-3 rounded lg:rounded-md text-xs sm:text-sm font-medium transition shadow-lg inline-flex items-center gap-1.5 whitespace-nowrap cursor-pointer">
               <span>{ctas[0].label}</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
-            <a
-              href={ctas[1].href}
-              className="bg-white hover:bg-gray-100 text-brand-navy border border-gray-200 hover:border-gray-300 px-4 sm:px-6 py-3 rounded lg:rounded-md text-xs sm:text-sm font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap"
-            >
+            </EnquiryTrigger>
+            <EnquiryTrigger className="bg-white hover:bg-gray-100 text-brand-navy border border-gray-200 hover:border-gray-300 px-4 sm:px-6 py-3 rounded lg:rounded-md text-xs sm:text-sm font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap cursor-pointer">
               <span>{ctas[1].label}</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
+            </EnquiryTrigger>
           </div>
         </div>
 
@@ -69,6 +65,7 @@ export default function IndustrialProjectSupport({ data }) {
             sizes="(max-width: 1024px) 100vw, 24rem"
             className="object-cover object-center"
           />
+        </div>
         </div>
       </div>
     </section>
